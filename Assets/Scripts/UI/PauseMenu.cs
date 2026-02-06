@@ -29,35 +29,47 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
-        Debug.Log("ZA WARUDO!");
+        StartCoroutine(PauseCoroutine());
+    }
+    private IEnumerator PauseCoroutine()
+    {
+        pauseButton.interactable = false;
         _playerMovement.enabled = false;
         _playerBattery.EnterSleepMode();
-        pauseButton.interactable = false;
+
+        yield return new WaitForSeconds(pauseDelay);
+
         pauseMenu.alpha = 1;
         pauseMenu.interactable = true;
         pauseMenu.blocksRaycasts = true;
     }
     public void Resume()
     {
-        Debug.Log("TOKI O TOMARE");
-        _playerMovement.enabled = true;
-        _playerBattery.WakeUp();
-        pauseButton.interactable = true;
-        pauseMenu.alpha = 0;
-        pauseMenu.interactable = false;
-        pauseMenu.blocksRaycasts = false;
+        StartCoroutine(ResumeCoroutine());
     }
-    public void Quit()
+    private IEnumerator ResumeCoroutine()
     {
         pauseMenu.alpha = 0;
         pauseMenu.interactable = false;
         pauseMenu.blocksRaycasts = false;
 
+        _playerBattery.WakeUp();
+        yield return new WaitForSeconds(resumeDelay);
+
+        _playerMovement.enabled = true;
+        pauseButton.interactable = true;
+    }
+    public void Quit()
+    {
         StartCoroutine(QuitCoroutine());
     }
     private IEnumerator QuitCoroutine()
     {
+        pauseMenu.alpha = 0;
+        pauseMenu.interactable = false;
+        pauseMenu.blocksRaycasts = false;
         _playerQuit.Quit();
+
         yield return new WaitForSeconds(quitDelay);
 
         quitMenu.alpha = 1;
