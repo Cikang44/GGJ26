@@ -418,11 +418,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &2118138113 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5394391531596751692, guid: b5e928d0b4b1b8a47be182492b104180, type: 3}
-  m_PrefabInstance: {fileID: 3354765471229454399}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3354765471229454399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -474,18 +469,6 @@ PrefabInstance:
     - target: {fileID: 5394391531596751692, guid: b5e928d0b4b1b8a47be182492b104180, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6996442180352719894, guid: b5e928d0b4b1b8a47be182492b104180, type: 3}
-      propertyPath: OnLowBattery.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6996442180352719894, guid: b5e928d0b4b1b8a47be182492b104180, type: 3}
-      propertyPath: OnLowBattery.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2118138113}
-    - target: {fileID: 6996442180352719894, guid: b5e928d0b4b1b8a47be182492b104180, type: 3}
-      propertyPath: OnLowBattery.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
