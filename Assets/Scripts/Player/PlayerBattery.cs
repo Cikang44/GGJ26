@@ -23,4 +23,9 @@ public class PlayerBattery : MonoBehaviour
             }
         }
     }
+    public void ChargeBattery(float percentage)
+    {
+        batteryPercentage += percentage;
+        if (batteryPercentage > 100f) batteryPercentage = 100f;
+    }
 }
