@@ -243,8 +243,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpHeight: 1.5
-  boostSpeed: 5
+  boostSpeed: 10
   boostHeight: 4
+  boostDelay: 0
+  isOnBoost: 0
 --- !u!114 &6996442180352719894
 MonoBehaviour:
   m_ObjectHideFlags: 0
