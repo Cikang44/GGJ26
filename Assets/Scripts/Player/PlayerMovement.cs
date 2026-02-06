@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [Min(0)] public float speed = 3;
     [Min(0)] public float jumpHeight = 3;
+    [Min(0)] public float boostSpeed = 10;
+    [Min(0)] public float boostHeight = 3;
     private Rigidbody2D _playerRb;
     private GroundDetector _groundDetector;
     private bool _isJumpOnCooldown = false;
@@ -45,10 +47,28 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private static readonly WaitForSeconds _waitForSeconds0_1 = new(0.1f);
-    IEnumerator JumpCooldown()
+    private IEnumerator JumpCooldown()
     {
         _isJumpOnCooldown = true;
         yield return _waitForSeconds0_1;
+        _isJumpOnCooldown = false;
+    }
+
+    public void Boost()
+    {
+        StartCoroutine(BoostCoroutine());
+    }
+    private IEnumerator BoostCoroutine()
+    {
+        _isJumpOnCooldown = true;
+        float timePassed = 0f;
+        while (timePassed < boostHeight / boostSpeed)
+        {
+            yield return null;
+            timePassed += Time.deltaTime;
+            _playerRb.linearVelocityY = boostSpeed;
+        }
+        _playerRb.linearVelocityY = boostSpeed / 2;
         _isJumpOnCooldown = false;
     }
 }
