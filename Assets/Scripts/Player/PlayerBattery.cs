@@ -15,7 +15,6 @@ public class PlayerBattery : MonoBehaviour
         if (isDrainingBattery)
         {
             batteryPercentage -= Time.deltaTime * 100f / batteryLifetimeInSecond;
-            Debug.Log(batteryPercentage);
             if (!_isLowBattery && batteryPercentage <= lowBatteryPercentage)
             {
                 _isLowBattery = true;
@@ -27,5 +26,15 @@ public class PlayerBattery : MonoBehaviour
     {
         batteryPercentage += percentage;
         if (batteryPercentage > 100f) batteryPercentage = 100f;
+    }
+
+    public void EnterSleepMode()
+    {
+        isDrainingBattery = false;
+    }
+
+    public void WakeUp()
+    {
+        isDrainingBattery = true;
     }
 }
