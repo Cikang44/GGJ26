@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 6472947862697091729}
   - component: {fileID: 1938354513918464083}
   - component: {fileID: 7455064908682669020}
+  - component: {fileID: 6996442180352719894}
+  - component: {fileID: 5064465517632795699}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -239,3 +241,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   jumpHeight: 1.5
+--- !u!114 &6996442180352719894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394391531596751692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5c71f772605ee458634c6e4ca9684d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  batteryPercentage: 100
+  batteryLifetimeInSecond: 300
+  lowBatteryPercentage: 10
+  _isDrainingBattery: 1
+  OnZeroPercent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLowBattery:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5064465517632795699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394391531596751692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae3dc285967c3c40b257ac5c3ce9542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  OnHeal:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
