@@ -4,17 +4,23 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     private bool _hasOpened = false;
-    public int requiredButtonCount = 1;
     private Interactable _interactable;
+    public GameObject trapdoor;
+    private SpriteRenderer _trapdoorSpriteRenderer;
+    private Animator _trapdoorAnimator;
     void Start()
     {
         _interactable = GetComponent<Interactable>();
+        _trapdoorSpriteRenderer = trapdoor.GetComponent<SpriteRenderer>();
+        _trapdoorAnimator = trapdoor.GetComponent<Animator>();
     }
     public void Open()
     {
-        if (!_hasOpened && CollectableButton.collectedButtonCount >= requiredButtonCount)
+        if (!_hasOpened)
         {
             Debug.Log("OPENED!");
+            _trapdoorSpriteRenderer.enabled = true;
+            _trapdoorAnimator.Play("Trapdoor_Open");
             _interactable.OnInteract.AddListener(Enter);
             _hasOpened = true;
         }

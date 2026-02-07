@@ -57,8 +57,6 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log($"Closest enemy: {(closestEnemy != null ? closestEnemy.name : "None")}");
         
         _nearbyEnemy = closestEnemy;
         _canInteract = _nearbyEnemy != null;

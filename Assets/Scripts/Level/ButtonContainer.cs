@@ -7,6 +7,7 @@ public class ButtonContainer : MonoBehaviour
     public UnityEvent OnClick = new();
     private bool _hasButton = false;
     private Interactable _interactable;
+    public Sprite withButtonSprite;
     void Start()
     {
         _interactable = GetComponent<Interactable>();
@@ -21,6 +22,7 @@ public class ButtonContainer : MonoBehaviour
             _interactable.OnInteract.RemoveListener(AttachButton);
             _interactable.OnInteract.AddListener(Click);
             _hasButton = true;
+            GetComponent<SpriteRenderer>().sprite = withButtonSprite;
         }
     }
     public void Click()
