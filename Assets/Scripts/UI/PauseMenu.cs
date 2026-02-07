@@ -89,6 +89,11 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void ConfigureArachnophobiaMode(bool isEnabled)
+    {
+        ArachnoBehaviour.ToggleArachnophobiaMode(isEnabled);
+    }
+
     public void ToggleBrightness(bool on)
     {
         foreach (var light in globalLights)
