@@ -4,6 +4,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     private bool _hasOpened = false;
+    public int requiredButtonCount = 1;
     private Interactable _interactable;
     void Start()
     {
@@ -11,7 +12,7 @@ public class Door : MonoBehaviour
     }
     public void Open()
     {
-        if (!_hasOpened)
+        if (!_hasOpened && CollectableButton.collectedButtonCount >= requiredButtonCount)
         {
             Debug.Log("OPENED!");
             _interactable.OnInteract.AddListener(Enter);
