@@ -18,6 +18,7 @@ public class LaserEnemyBehaviour : MonoBehaviour
 
     private void ShootLaser()
     {
-        Instantiate(laserPrefab, transform.position, Quaternion.identity);
+        Instantiate(laserPrefab, transform.position, 
+            Quaternion.LookRotation(transform.forward) * Quaternion.Euler(0, 0, 90));
     }
 }

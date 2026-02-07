@@ -48,9 +48,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 499630785767956223, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a6984ff3aed35d0469a23e6c4fa7e633, type: 2}
     - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
       propertyPath: m_Name
       value: Enemy Basic Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -83,6 +91,7 @@ MonoBehaviour:
   moveSpeed: 2
   rightBoundary: 5
   leftBoundary: -5
+  idleTimer: 2
 --- !u!114 &1114873158079542237
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7019166287212523073
+--- !u!1001 &8847437588214713584
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -48,13 +48,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 499630785767956223, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: a6984ff3aed35d0469a23e6c4fa7e633, type: 2}
     - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
       propertyPath: m_Name
-      value: Enemy Spike Variant
+      value: Enemy Laser Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
       propertyPath: m_IsActive
@@ -66,41 +62,24 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2323487878771173375}
-    - targetCorrespondingSourceObject: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8816101776777129494}
+      addedObject: {fileID: 8727487874859063804}
   m_SourcePrefab: {fileID: 100100000, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
---- !u!1 &2587984046995084230 stripped
+--- !u!1 &4056374198955422071 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
-  m_PrefabInstance: {fileID: 7019166287212523073}
+  m_PrefabInstance: {fileID: 8847437588214713584}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2323487878771173375
+--- !u!114 &8727487874859063804
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2587984046995084230}
+  m_GameObject: {fileID: 4056374198955422071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d31a59a414743f9aac7ad522937ae5, type: 3}
+  m_Script: {fileID: 11500000, guid: eaf55e718fd9946808b721fb6d6b85b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  rightBoundary: 5
-  leftBoundary: -5
-  idleTimer: 2
---- !u!114 &8816101776777129494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2587984046995084230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b78220adb3fa49c78aa47d036eb64a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  laserPrefab: {fileID: 4056374198955422071}
+  laserInterval: 3
