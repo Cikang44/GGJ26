@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 087cc98b4bea7ed4b9c5bc43d6896ab3
+guid: b753b2bcd3592cb4f8ac70fc36fc3ac8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9108975550980043385
-    second: Battery Empty_0
+      213: 2367709237803966264
+    second: Player Jump_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Battery Empty_0
+      name: Player Jump_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1145
-        height: 548
+        x: 911
+        y: 709
+        width: 518
+        height: 812
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78dcd107ffa669180800000000000000
-      internalID: -9108975550980043385
+      spriteID: 83f57b2d10bcbd020800000000000000
+      internalID: 2367709237803966264
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Battery Empty_0: -9108975550980043385
+      Player Jump_0: 2367709237803966264
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

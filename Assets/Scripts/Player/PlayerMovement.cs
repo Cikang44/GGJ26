@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [Min(0)] public float boostDelay = 1;
     private Rigidbody2D _playerRb;
     private GroundDetector _groundDetector;
+    private Animator _animator;
     private bool _isJumpOnCooldown = false;
     [HideInInspector] public bool isOnBoost = false;
 
@@ -20,20 +21,24 @@ public class PlayerMovement : MonoBehaviour
     {
         _playerRb = GetComponent<Rigidbody2D>();
         _groundDetector = GetComponent<GroundDetector>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        float direction = 0;
+        int direction = 0;
         if (Input.GetKey(KeyCode.A)) direction -= 1;
         if (Input.GetKey(KeyCode.D)) direction += 1;
         Move(direction);
 
         if (Input.GetKeyDown(KeyCode.W)) Jump();
+        
+        _animator.SetInteger("Direction", direction);
+        _animator.SetBool("Grounded", _groundDetector.isGrounded);
     }
 
-    private void Move(float direction)
+    private void Move(int direction)
     {
         _playerRb.linearVelocityX = direction * speed;
     }
