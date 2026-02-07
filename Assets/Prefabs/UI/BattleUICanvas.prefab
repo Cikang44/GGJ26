@@ -195,7 +195,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c479d0234b54445b89e8f00f7306562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notePrefab: {fileID: 8733056795541838222, guid: e757ea5f751324a70b4e39065277c746, type: 3}
+  notePrefabs:
+  - {fileID: 8733056795541838222, guid: 4a0c35d06df1b423c9c274e9c658a9df, type: 3}
+  - {fileID: 1917056352296560577, guid: 58dc334aa75dd46e5babd566f44b1939, type: 3}
+  - {fileID: 4644847682691076797, guid: 6a25e9affe1d843699773ce8c67b747a, type: 3}
+  - {fileID: 2069316698776489175, guid: 4442e65308a0246139d7d8b42277a217, type: 3}
   playerReceptors:
   - {fileID: 3044939918986505641}
   - {fileID: 7316501397752255778}

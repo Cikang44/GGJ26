@@ -7,8 +7,8 @@ using UnityEngine;
 public class NoteSpawner : MonoBehaviour
 {
     [Header("Prefabs")]
-    [Tooltip("Note prefab to spawn")]
-    public GameObject notePrefab;
+    [Tooltip("Note prefabs for each direction (Left, Down, Up, Right)")]
+    public GameObject[] notePrefabs = new GameObject[4];
     
     [Header("Receptors")]
     [Tooltip("Player receptors (Left, Down, Up, Right)")]
@@ -146,8 +146,6 @@ public class NoteSpawner : MonoBehaviour
 
     private void SpawnNote(RapManager.Note noteData)
     {
-        if (notePrefab == null) return;
-        
         // Get appropriate receptor
         bool isPlayer = noteData.IsPlayerNote();
         NoteReceptor[] receptors = isPlayer ? playerReceptors : opponentReceptors;
@@ -158,6 +156,15 @@ public class NoteSpawner : MonoBehaviour
             Debug.LogError($"Invalid note direction: {directionIndex}");
             return;
         }
+        
+        // Get the prefab for this direction
+        if (notePrefabs == null || notePrefabs.Length != 4 || notePrefabs[directionIndex] == null)
+        {
+            Debug.LogError($"Missing note prefab for direction {directionIndex}");
+            return;
+        }
+        
+        GameObject prefabToUse = notePrefabs[directionIndex];
         
         NoteReceptor receptor = receptors[directionIndex];
         if (receptor == null)
@@ -170,7 +177,7 @@ public class NoteSpawner : MonoBehaviour
         Vector3 spawnPos = receptor.GetPosition() + Vector3.down * spawnDistance;
         
         // Spawn note
-        GameObject noteObj = Instantiate(notePrefab, spawnPos, Quaternion.identity, transform);
+        GameObject noteObj = Instantiate(prefabToUse, spawnPos, Quaternion.identity, transform);
         Note note = noteObj.GetComponent<Note>();
         
         if (note != null)

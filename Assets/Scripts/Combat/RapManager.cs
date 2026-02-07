@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Manages the rhythm battle system (FNF-like) and battle flow between player and enemies
@@ -111,7 +112,35 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     [Serializable]
     public class ChartData
     {
-        public SongData song;
+        public SongData song; // Legacy format support
+        
+        // Version 2.0.0 format
+        public string version;
+        public ScrollSpeed scrollSpeed;
+        public NotesDifficulty notes;
+        public string generatedBy;
+    }
+    
+    [Serializable]
+    public class ScrollSpeed
+    {
+        public float normal = 1f;
+    }
+    
+    [Serializable]
+    public class NotesDifficulty
+    {
+        public List<NoteData> easy = new();
+        public List<NoteData> normal = new();
+    }
+    
+    [Serializable]
+    public class NoteData
+    {
+        public float t; // time in milliseconds
+        public int d; // direction (0-3: player, 4-7: opponent)
+        public float l; // length/sustain
+        public List<object> p = new(); // properties
     }
 
     #endregion
@@ -160,9 +189,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     [Header("Audio")]
     [Tooltip("Audio source for instrumental track")]
     public AudioSource instrumentalSource;
-
-    [Tooltip("Audio source for vocals track")]
-    public AudioSource vocalsSource;
     
     [Header("Health System")]
     [Tooltip("Health bar fill image")]
@@ -222,6 +248,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         }
 
         IsBattleActive = true;
+        PlayerMovement.isInControl = false;
         currentEnemy = enemy;
 
         // Store battle positions
@@ -246,10 +273,12 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
             battleUICanvas.SetActive(true);
         }
 
-        // Load chart data
+        // Load chart data and music
+        int chartIndex = UnityEngine.Random.Range(0, enemy.battleChartAsset.Length);
+        instrumentalSource.clip = enemy.battleMusicClip[chartIndex];
         if (enemy.battleChartAsset != null)
         {
-            LoadChartFromJSON(enemy.battleChartAsset.text);
+            LoadChartFromJSON(enemy.battleChartAsset[chartIndex].text);
         }
         else
         {
@@ -295,8 +324,23 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
             Debug.Log($"Health per player note: {_healthPerPlayerNote:F3}");
             Debug.Log($"Total player notes: {_totalPlayerNotes}");
             
-            float bpm = currentChart.song.bpm;
-            float speed = currentChart.song.speed;
+            // Get BPM and speed based on chart format
+            float bpm = 100f; // Default BPM for v2 format
+            float speed = 1f;
+            
+            if (currentChart.song != null)
+            {
+                // Legacy format
+                bpm = currentChart.song.bpm;
+                speed = currentChart.song.speed;
+            }
+            else if (currentChart.scrollSpeed != null)
+            {
+                // v2 format
+                speed = currentChart.scrollSpeed.normal;
+                // BPM is not specified in v2 format, use default or calculate from notes
+            }
+            
             noteSpawner.Initialize(allNotes, bpm, speed);
             noteSpawner.StartSpawning();
         }
@@ -304,11 +348,8 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         // Play music (if available)
         if (instrumentalSource != null && instrumentalSource.clip != null)
         {
+            Debug.Log($"Playing battle music: {instrumentalSource.clip.name}");
             instrumentalSource.Play();
-        }
-        if (vocalsSource != null && vocalsSource.clip != null)
-        {
-            vocalsSource.Play();
         }
 
         // Invoke event
@@ -329,6 +370,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         }
 
         IsBattleActive = false;
+        PlayerMovement.isInControl = true;
 
         // Notify enemy
         if (currentEnemy != null)
@@ -368,10 +410,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         if (instrumentalSource != null)
         {
             instrumentalSource.Stop();
-        }
-        if (vocalsSource != null)
-        {
-            vocalsSource.Stop();
         }
 
         // Invoke event
@@ -426,10 +464,20 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
             // Parse using custom parser to handle nested arrays
             currentChart = ParseChartData(jsonText);
 
-            if (currentChart != null && currentChart.song != null)
+            if (currentChart != null)
             {
-                Debug.Log($"Loaded chart: {currentChart.song.song} - BPM: {currentChart.song.bpm}");
-                Debug.Log($"Sections: {currentChart.song.notes.Count}");
+                if (currentChart.version != null)
+                {
+                    // v2 format
+                    Debug.Log($"Loaded chart v{currentChart.version}");
+                    Debug.Log($"Easy notes: {currentChart.notes?.easy.Count ?? 0}, Normal notes: {currentChart.notes?.normal.Count ?? 0}");
+                }
+                else if (currentChart.song != null)
+                {
+                    // Legacy format
+                    Debug.Log($"Loaded chart: {currentChart.song.song} - BPM: {currentChart.song.bpm}");
+                    Debug.Log($"Sections: {currentChart.song.notes.Count}");
+                }
                 
                 int totalNotes = GetAllNotes().Count;
                 Debug.Log($"Total Notes: {totalNotes}");
@@ -459,24 +507,56 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         // Replace nested arrays format to make it JsonUtility-compatible
         
         ChartData chartData = new ChartData();
-        chartData.song = new SongData();
         
         // Simple JSON parsing (could use JsonUtility for non-nested parts)
         try
         {
             var rootDict = MiniJSON.Json.Deserialize(jsonText) as Dictionary<string, object>;
-            if (rootDict == null || !rootDict.ContainsKey("song"))
+            if (rootDict == null)
             {
-                Debug.LogError("Invalid chart format: missing 'song' root");
+                Debug.LogError("Invalid chart format: could not parse JSON");
                 return null;
             }
             
-            var songDict = rootDict["song"] as Dictionary<string, object>;
-            if (songDict == null)
+            // Detect format version
+            if (rootDict.ContainsKey("version"))
             {
-                Debug.LogError("Invalid chart format: 'song' is not an object");
+                // Version 2.0.0 format
+                return ParseChartDataV2(rootDict);
+            }
+            else if (rootDict.ContainsKey("song"))
+            {
+                // Legacy format
+                return ParseChartDataLegacy(rootDict);
+            }
+            else
+            {
+                Debug.LogError("Invalid chart format: unknown format");
                 return null;
             }
+            
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Error parsing chart data: {e.Message}\n{e.StackTrace}");
+            return null;
+        }
+    }
+    
+    /// <summary>
+    /// Parse legacy FNF chart format
+    /// </summary>
+    private ChartData ParseChartDataLegacy(Dictionary<string, object> rootDict)
+    {
+        ChartData chartData = new ChartData();
+        chartData.song = new SongData();
+        
+        var songDict = rootDict["song"] as Dictionary<string, object>;
+        if (songDict == null)
+        {
+            Debug.LogError("Invalid chart format: 'song' is not an object");
+            return null;
+        }
             
             // Parse basic song properties
             chartData.song.song = songDict.ContainsKey("song") ? songDict["song"].ToString() : "Unknown";
@@ -548,13 +628,105 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                 }
             }
             
-            return chartData;
-        }
-        catch (Exception e)
+        return chartData;
+    }
+    
+    /// <summary>
+    /// Parse Version 2.0.0 chart format
+    /// </summary>
+    private ChartData ParseChartDataV2(Dictionary<string, object> rootDict)
+    {
+        ChartData chartData = new ChartData();
+        
+        // Parse version
+        chartData.version = rootDict.ContainsKey("version") ? rootDict["version"].ToString() : "2.0.0";
+        
+        // Parse scrollSpeed
+        if (rootDict.ContainsKey("scrollSpeed"))
         {
-            Debug.LogError($"Error parsing chart data: {e.Message}\n{e.StackTrace}");
-            return null;
+            var scrollSpeedDict = rootDict["scrollSpeed"] as Dictionary<string, object>;
+            if (scrollSpeedDict != null)
+            {
+                chartData.scrollSpeed = new ScrollSpeed();
+                if (scrollSpeedDict.ContainsKey("normal"))
+                    chartData.scrollSpeed.normal = Convert.ToSingle(scrollSpeedDict["normal"]);
+            }
         }
+        else
+        {
+            chartData.scrollSpeed = new ScrollSpeed { normal = 1f };
+        }
+        
+        // Parse notes
+        chartData.notes = new NotesDifficulty();
+        if (rootDict.ContainsKey("notes"))
+        {
+            var notesDict = rootDict["notes"] as Dictionary<string, object>;
+            if (notesDict != null)
+            {
+                // Parse easy difficulty
+                if (notesDict.ContainsKey("easy"))
+                {
+                    var easyList = notesDict["easy"] as List<object>;
+                    if (easyList != null)
+                    {
+                        foreach (var noteObj in easyList)
+                        {
+                            var noteDict = noteObj as Dictionary<string, object>;
+                            if (noteDict != null)
+                            {
+                                NoteData noteData = new NoteData();
+                                if (noteDict.ContainsKey("t"))
+                                    noteData.t = Convert.ToSingle(noteDict["t"]);
+                                if (noteDict.ContainsKey("d"))
+                                    noteData.d = Convert.ToInt32(noteDict["d"]);
+                                if (noteDict.ContainsKey("l"))
+                                    noteData.l = Convert.ToSingle(noteDict["l"]);
+                                if (noteDict.ContainsKey("p"))
+                                    noteData.p = noteDict["p"] as List<object> ?? new List<object>();
+                                
+                                chartData.notes.easy.Add(noteData);
+                            }
+                        }
+                    }
+                }
+                
+                // Parse normal difficulty
+                if (notesDict.ContainsKey("normal"))
+                {
+                    var normalList = notesDict["normal"] as List<object>;
+                    if (normalList != null)
+                    {
+                        foreach (var noteObj in normalList)
+                        {
+                            var noteDict = noteObj as Dictionary<string, object>;
+                            if (noteDict != null)
+                            {
+                                NoteData noteData = new NoteData();
+                                if (noteDict.ContainsKey("t"))
+                                    noteData.t = Convert.ToSingle(noteDict["t"]);
+                                if (noteDict.ContainsKey("d"))
+                                    noteData.d = Convert.ToInt32(noteDict["d"]);
+                                if (noteDict.ContainsKey("l"))
+                                    noteData.l = Convert.ToSingle(noteDict["l"]);
+                                if (noteDict.ContainsKey("p"))
+                                    noteData.p = noteDict["p"] as List<object> ?? new List<object>();
+                                
+                                chartData.notes.normal.Add(noteData);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Parse generatedBy
+        if (rootDict.ContainsKey("generatedBy"))
+            chartData.generatedBy = rootDict["generatedBy"].ToString();
+        
+        Debug.Log($"Loaded chart v{chartData.version}: {chartData.notes.easy.Count} easy notes, {chartData.notes.normal.Count} normal notes");
+        
+        return chartData;
     }
 
     /// <summary>
@@ -575,9 +747,26 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     {
         List<Note> allNotes = new();
 
-        Debug.Log(JsonUtility.ToJson(currentChart, true));
-
-        if (currentChart != null && currentChart.song != null)
+        if (currentChart == null) return allNotes;
+        
+        // Handle v2 format
+        if (currentChart.notes != null)
+        {
+            // Use easy difficulty by default (can be made configurable)
+            var noteDataList = currentChart.notes.easy.Count > 0 ? currentChart.notes.easy : currentChart.notes.normal;
+            
+            foreach (var noteData in noteDataList)
+            {
+                // Convert d (0-7) to noteData format
+                // d: 0-3 are player notes (Left, Down, Up, Right)
+                // d: 4-7 are opponent notes (Left, Down, Up, Right)
+                int convertedNoteData = noteData.d < 4 ? noteData.d : noteData.d; // Keep as-is since format matches
+                
+                allNotes.Add(new Note(noteData.t, convertedNoteData, noteData.l));
+            }
+        }
+        // Handle legacy format
+        else if (currentChart.song != null)
         {
             foreach (var section in currentChart.song.notes)
             {

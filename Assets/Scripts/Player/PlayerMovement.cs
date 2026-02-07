@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(GroundDetector))]
 public class PlayerMovement : MonoBehaviour
 {
+    public static bool isInControl = true;
+
     [Min(0)] public float speed = 3;
     [Min(0)] public float jumpHeight = 3;
     [Min(0)] public float boostSpeed = 10;
@@ -28,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isInControl) return;
         int direction = 0;
         if (Input.GetKey(KeyCode.A)) direction -= 1;
         if (Input.GetKey(KeyCode.D)) direction += 1;

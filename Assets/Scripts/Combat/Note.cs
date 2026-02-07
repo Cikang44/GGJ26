@@ -72,12 +72,6 @@ public class Note : MonoBehaviour
                 _sustainTailRect.sizeDelta = new Vector2(_sustainTailRect.sizeDelta.x, tailHeight);
             }
         }
-        
-        // Set color based on direction
-        if (noteImage != null)
-        {
-            noteImage.color = GetColorForDirection(direction);
-        }
     }
 
     private void FixedUpdate()
@@ -243,22 +237,5 @@ public class Note : MonoBehaviour
     {
         if (_targetReceptor == null) return float.MaxValue;
         return Vector3.Distance(transform.position, _targetReceptor.GetPosition());
-    }
-
-    private Color GetColorForDirection(RapManager.NoteDirection dir)
-    {
-        switch (dir)
-        {
-            case RapManager.NoteDirection.Left:
-                return new Color(0.8f, 0.2f, 0.8f); // Purple
-            case RapManager.NoteDirection.Down:
-                return new Color(0.2f, 0.8f, 0.8f); // Cyan
-            case RapManager.NoteDirection.Up:
-                return new Color(0.2f, 0.8f, 0.2f); // Green
-            case RapManager.NoteDirection.Right:
-                return new Color(0.8f, 0.2f, 0.2f); // Red
-            default:
-                return Color.white;
-        }
     }
 }
