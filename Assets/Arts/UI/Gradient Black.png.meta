@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3583f9e919f9a4120a7ff4382c44c617
+guid: 5dda0423dbcfc704682b6f556cd9a19a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5465967867057579042
-    second: Tak berjudul391_20260207154513_0
+      213: -1261913598982944541
+    second: Gradient Black_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tak berjudul391_20260207154513_0
+      name: Gradient Black_0
       rect:
         serializedVersion: 2
-        x: 353
-        y: 470
-        width: 274
-        height: 275
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: edb55525f2bf424b0800000000000000
-      internalID: -5465967867057579042
+      spriteID: 3e803638448cc7ee0800000000000000
+      internalID: -1261913598982944541
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Tak berjudul391_20260207154513_0: -5465967867057579042
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
