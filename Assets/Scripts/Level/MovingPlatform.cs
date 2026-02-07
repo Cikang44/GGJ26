@@ -30,14 +30,14 @@ public class MovingPlatform : MonoBehaviour
         if (movingSpeed * Time.deltaTime >= moveDirection.magnitude)
         {
             transform.position = _pathNodes[_currentTargetIndex];
-            if (_currentTargetIndex == _pathNodes.Count - 1)
+            if (_currentTargetIndex == _pathNodes.Count - 1 && !_reverseDirection)
             {
-                if (!_reverseDirection) StartCoroutine(ReverseTimer());
+                StartCoroutine(ReverseTimer());
                 _reverseDirection = true;
             }
-            if (_currentTargetIndex == 0)
+            if (_currentTargetIndex == 0 && _reverseDirection)
             {
-                if (!_reverseDirection) StartCoroutine(ReverseTimer());
+                StartCoroutine(ReverseTimer());
                 _reverseDirection = false;
             }
             _currentTargetIndex += _reverseDirection ? -1 : 1;

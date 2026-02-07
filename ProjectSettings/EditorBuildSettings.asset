@@ -8,6 +8,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/Main Menu.unity
     guid: 0517dcdeb040edb4bbd652b5801a30ad
+  - enabled: 1
+    path: Assets/Scenes/Game/Level 1.unity
+    guid: e42cf8f58f909714fa27bc6888eeb8bf
+  - enabled: 1
+    path: Assets/Scenes/Game/Win By Quitting.unity
+    guid: 45e0c39976010b64fa70d87d40746a86
+  - enabled: 1
+    path: Assets/Scenes/Game/Game Over By Dying.unity
+    guid: c834248a2dd955f4da3255a1d6ea26d0
+  - enabled: 1
+    path: Assets/Scenes/Game/Game Over By No Battery.unity
+    guid: b23c0e5ed696e604f9252f90f280b6e2
+  - enabled: 1
+    path: Assets/Scenes/Game/Game Over By Quitting.unity
+    guid: c6225d0e173e049499de1e3edc234b1d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

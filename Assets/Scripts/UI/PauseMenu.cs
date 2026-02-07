@@ -10,7 +10,6 @@ public class PauseMenu : MonoBehaviour
     private PlayerQuit _playerQuit;
 
     public CanvasGroup pauseMenu;
-    public CanvasGroup quitMenu;
     public Button pauseButton;
     public Light2D[] globalLights;
     public float pauseDelay = 1;
@@ -74,19 +73,7 @@ public class PauseMenu : MonoBehaviour
 
         yield return new WaitForSeconds(quitDelay);
 
-        quitMenu.alpha = 1;
-        quitMenu.interactable = true;
-        quitMenu.blocksRaycasts = true;
-
-        while (true)
-        {
-            yield return null;
-            if (Input.anyKeyDown)
-            {
-                Application.Quit();
-                Debug.Log("QUIT APPLICATION");
-            }
-        }
+        SceneTransitionManager.Instance.GoToScene("Game Over By Quitting");
     }
 
     public void ConfigureArachnophobiaMode(bool isEnabled)

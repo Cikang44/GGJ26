@@ -10,7 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 128664946200043473, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
       propertyPath: m_Name
-      value: Platform
+      value: Platform 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 735445074064282475, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.906218
+      objectReference: {fileID: 0}
+    - target: {fileID: 735445074064282475, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.68399996
       objectReference: {fileID: 0}
     - target: {fileID: 1691134714261295145, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
       propertyPath: m_LocalPosition.x
@@ -52,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5692784466706934185, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -185941970, guid: 276a1fe157168ad41929d303ef8e5ccc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
