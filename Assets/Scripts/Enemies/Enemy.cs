@@ -36,9 +36,6 @@ public class Enemy : MonoBehaviour
     private HealthBehaviour _healthBehaviour;
     private Transform _playerTransform;
     private bool _isInBattle = false;
-    private bool _isDefeated = false;
-    
-    public bool IsDefeated => _isDefeated;
     public bool IsInBattle => _isInBattle;
 
     private void Start()
@@ -66,7 +63,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (_isDefeated || _isInBattle) return;
+        if (_isInBattle) return;
         
         CheckPlayerProximity();
     }
@@ -108,7 +105,6 @@ public class Enemy : MonoBehaviour
 
     private void HandleDefeat()
     {
-        _isDefeated = true;
         OnDefeat?.Invoke();
         
         // Optional: disable collider or hide enemy
@@ -123,5 +119,24 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (_isInBattle) return;
+        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            var health = collision.gameObject.GetComponent<HealthBehaviour>();
+            var rb2 = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (rb2 != null)
+            {
+                rb2.linearVelocity = new Vector2(Mathf.Max(Mathf.Abs(rb2.linearVelocityX), 3f) * Mathf.Sign(rb2.linearVelocityX), 2f);
+            }
+            if (health != null)
+            {
+                health.TakeDamage(1);
+            }
+        }
     }
 }

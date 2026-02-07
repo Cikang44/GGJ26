@@ -216,7 +216,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     /// </summary>
     public void StartBattle(Enemy enemy)
     {
-        if (IsBattleActive || enemy == null || enemy.IsDefeated)
+        if (IsBattleActive || enemy == null)
         {
             return;
         }
