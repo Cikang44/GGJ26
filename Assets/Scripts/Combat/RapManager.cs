@@ -140,9 +140,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     [Tooltip("Disable player movement during battle")]
     public bool disablePlayerMovement = true;
 
-    [Tooltip("Battle camera (optional)")]
-    public Camera battleCamera;
-
     [Tooltip("Main gameplay camera")]
     public Camera mainCamera;
 
@@ -240,13 +237,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         if (disablePlayerMovement && _playerMovement != null)
         {
             _playerMovement.enabled = false;
-        }
-
-        // Switch cameras
-        if (battleCamera != null && mainCamera != null)
-        {
-            mainCamera.gameObject.SetActive(false);
-            battleCamera.gameObject.SetActive(true);
         }
 
         // Show battle UI
@@ -352,13 +342,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         if (disablePlayerMovement && _playerMovement != null)
         {
             _playerMovement.enabled = true;
-        }
-
-        // Switch cameras back
-        if (battleCamera != null && mainCamera != null)
-        {
-            battleCamera.gameObject.SetActive(false);
-            mainCamera.gameObject.SetActive(true);
         }
 
         // Hide battle UI
@@ -698,7 +681,16 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     
     public void OnPlayerNoteHit()
     {
-        float healthGain = _healthPerPlayerNote;
+        float healthGain = _healthPerPlayerNote * 5f;
+        _currentHealth = Mathf.Clamp(_currentHealth + healthGain, 0f, 100f);
+        UpdateHealthBar();
+        CheckWinLoseCondition();
+    }
+    
+    public void OnPlayerSustainHold(float holdDurationMs)
+    {
+        float healthGainPerMs = _healthPerPlayerNote / 100f; // Divide by 100ms as base
+        float healthGain = healthGainPerMs * holdDurationMs;
         _currentHealth = Mathf.Clamp(_currentHealth + healthGain, 0f, 100f);
         UpdateHealthBar();
         CheckWinLoseCondition();
@@ -706,7 +698,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     
     public void OnPlayerNoteMiss()
     {
-        float healthLoss = _healthPerPlayerNote * 3f;
+        float healthLoss = _healthPerPlayerNote * 15f;
         _currentHealth = Mathf.Clamp(_currentHealth - healthLoss, 0f, 100f);
         UpdateHealthBar();
         CheckWinLoseCondition();
@@ -749,12 +741,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
             // Player lost
             Debug.Log("Player health depleted! Battle lost.");
             OnBattleDefeat();
-        }
-        else if (_currentHealth >= 100f)
-        {
-            // Player won
-            Debug.Log("Player health maxed! Battle won!");
-            OnBattleVictory();
         }
     }
     

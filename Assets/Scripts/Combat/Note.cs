@@ -28,7 +28,11 @@ public class Note : MonoBehaviour
     private float _travelTime; // Time it takes for note to reach receptor
     private RectTransform _rectTransform;
     private RectTransform _sustainTailRect;
-
+    private bool _isHolding; // True when sustain note is being held
+    private float _sustainStartTime; // When the sustain started
+    private bool _sustainComplete; // True when sustain duration is complete
+    private float _lastHealthUpdateTime; // Track when we last gave health for sustain
+    private float _initialSustainTailHeight; // Store original tail height
     public bool HasBeenHit => _hasBeenHit;
     public bool HasMissed => _hasMissed;
 
@@ -63,7 +67,8 @@ public class Note : MonoBehaviour
             if (sustainLength > 0 && _sustainTailRect != null)
             {
                 // Scale tail based on sustain length
-                float tailHeight = sustainLength * scrollSpeed * 0.001f;
+                float tailHeight = sustainLength * scrollSpeed * 0.1f;
+                _initialSustainTailHeight = tailHeight;
                 _sustainTailRect.sizeDelta = new Vector2(_sustainTailRect.sizeDelta.x, tailHeight);
             }
         }
@@ -77,6 +82,42 @@ public class Note : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Check if sustain is complete
+        if (_isHolding && sustainLength > 0)
+        {
+            float holdDuration = (Time.time - _sustainStartTime) * 1000f; // Duration in milliseconds
+
+            // Gradually decrease sustain tail visual
+            if (_sustainTailRect != null && sustainTail != null && sustainTail.activeSelf)
+            {
+                float remainingDuration = sustainLength - holdDuration;
+                float _progress = Mathf.Clamp01(remainingDuration / sustainLength);
+                
+                // Scale tail height based on remaining duration
+                float currentHeight = _initialSustainTailHeight * _progress;
+                _sustainTailRect.sizeDelta = new Vector2(_sustainTailRect.sizeDelta.x, currentHeight);
+            }
+            
+            // Gradually give health while holding (for player notes)
+            if (isPlayerNote && RapManager.Instance != null)
+            {
+                float timeSinceLastUpdate = Time.time - _lastHealthUpdateTime;
+                if (timeSinceLastUpdate >= 0.05f) // Update every 50ms
+                {
+                    RapManager.Instance.OnPlayerSustainHold(timeSinceLastUpdate * 1000f); // Pass time in ms
+                    _lastHealthUpdateTime = Time.time;
+                }
+            }
+
+            if (holdDuration >= sustainLength)
+            {
+                _sustainComplete = true;
+                _isHolding = false;
+                Destroy(gameObject);
+                return;
+            }
+        }
+        
         if (_hasBeenHit || _targetReceptor == null) return;
         
         // Calculate position based on absolute song time
@@ -115,8 +156,35 @@ public class Note : MonoBehaviour
             _targetReceptor.ShowHitFeedback();
         }
         
-        // Destroy or hide note
-        Destroy(gameObject);
+        // If this is a sustain note, start holding instead of destroying
+        if (sustainLength > 0)
+        {
+            _isHolding = true;
+            _sustainStartTime = Time.time;
+            _lastHealthUpdateTime = Time.time;
+            // Keep the note visible at the receptor position
+            if (_targetReceptor != null)
+            {
+                transform.position = _targetReceptor.GetPosition();
+            }
+        }
+        else
+        {
+            // Regular note - destroy immediately
+            Destroy(gameObject);
+        }
+    }
+    
+    /// <summary>
+    /// Called when the player releases the note (for sustain notes)
+    /// </summary>
+    public void Release()
+    {
+        if (_isHolding)
+        {
+            _isHolding = false;
+            Destroy(gameObject);
+        }
     }
 
     public void AutoHit()
@@ -131,8 +199,21 @@ public class Note : MonoBehaviour
             _targetReceptor.ShowHitFeedback();
         }
         
-        // Just destroy note, don't affect health
-        Destroy(gameObject);
+        // Enemy notes with sustain should also hold and show visual decrease
+        if (sustainLength > 0)
+        {
+            _isHolding = true;
+            _sustainStartTime = Time.time;
+            // Keep the note visible at the receptor position
+            if (_targetReceptor != null)
+            {
+                transform.position = _targetReceptor.GetPosition();
+            }
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     
     public void Miss()
