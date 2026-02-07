@@ -86,4 +86,9 @@ public class PauseMenu : MonoBehaviour
             }
         }
     }
+
+    public void ConfigureArachnophobiaMode(bool isEnabled)
+    {
+        
+    }
 }
