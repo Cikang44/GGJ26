@@ -40,6 +40,7 @@ public class Enemy : MonoBehaviour
     private Transform _playerTransform;
     private bool _isInBattle = false;
     public bool IsInBattle => _isInBattle;
+    public int damage = 1;
 
     private void Start()
     {
@@ -126,7 +127,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_isInBattle) return;
+        if (_isInBattle || damage == 0) return;
         
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -138,7 +139,7 @@ public class Enemy : MonoBehaviour
             }
             if (health != null)
             {
-                health.TakeDamage(1);
+                health.TakeDamage(damage);
             }
         }
     }
