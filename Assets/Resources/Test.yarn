@@ -1,0 +1,7 @@
+title: Test
+---
+<<move_dialog_to_character Player>>
+hello: world
+<<move_dialog_to_character Player>>
+bleh: moved again!
+===
