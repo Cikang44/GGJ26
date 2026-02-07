@@ -48,13 +48,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4243136894696435533, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 49bdd647b326847a5a031bd0424d0695, type: 2}
+    - target: {fileID: 4563252866026120741, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1224870479718740046, guid: aec8aff154fab2b4e8222b33e39771c4, type: 3}
     - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
       propertyPath: m_Name
       value: Enemy Laser Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804567235362227999, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804567235362227999, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_Offset.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804567235362227999, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.104
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804567235362227999, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.2732422
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389861571668936049, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.104
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389861571668936049, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.2732422
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -81,5 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf55e718fd9946808b721fb6d6b85b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserPrefab: {fileID: 4056374198955422071}
-  laserInterval: 3
+  laserPrefab: {fileID: 8641440809429568838, guid: af76127b2221d4781a8420beccc393c4, type: 3}
+  laserInterval: 1
+  initialDelay: 0.8333334
