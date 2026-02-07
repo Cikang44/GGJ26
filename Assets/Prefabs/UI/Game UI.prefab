@@ -791,7 +791,7 @@ GameObject:
   - component: {fileID: 7604615188380506897}
   - component: {fileID: 9187410248665119517}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Percentage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,6 +928,7 @@ GameObject:
   - component: {fileID: 6893512446584202704}
   - component: {fileID: 4895832769095170849}
   - component: {fileID: 6010713320578491507}
+  - component: {fileID: 3981894983226591089}
   m_Layer: 5
   m_Name: Game UI
   m_TagString: Untagged
@@ -1038,6 +1039,27 @@ MonoBehaviour:
   pauseDelay: 1
   resumeDelay: 1
   quitDelay: 2
+--- !u!114 &3981894983226591089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5077070566915567518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a17181317c83741865ea430ff40f87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  batteryHighSprite: {fileID: 21300000, guid: 7e701adbc86f0ee4dbe2058224ce55e5, type: 3}
+  batteryMediumSprite: {fileID: 21300000, guid: 66f4367dc613cca4690e08422a255e90, type: 3}
+  batteryLowSprite: {fileID: 21300000, guid: b8feb32a9569c244182e3e68172cbc4d, type: 3}
+  batteryEmptySprite: {fileID: -9108975550980043385, guid: 087cc98b4bea7ed4b9c5bc43d6896ab3, type: 3}
+  batteryImage: {fileID: 6868113387651485146}
+  batteryPercentageText: {fileID: 9187410248665119517}
+  heartGoodSprite: {fileID: 21300000, guid: 2db98e15abefb3b43af38d0191b65a80, type: 3}
+  heartBrokenSprite: {fileID: 21300000, guid: e06d20df7c4311c48a835a91248f98b6, type: 3}
+  heartsParent: {fileID: 3712581715988944623}
 --- !u!1 &5418595844915713447
 GameObject:
   m_ObjectHideFlags: 0
