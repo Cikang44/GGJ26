@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -11,6 +12,7 @@ public class PauseMenu : MonoBehaviour
     public CanvasGroup pauseMenu;
     public CanvasGroup quitMenu;
     public Button pauseButton;
+    public Light2D[] globalLights;
     public float pauseDelay = 1;
     public float resumeDelay = 1;
     public float quitDelay = 2;
@@ -89,6 +91,16 @@ public class PauseMenu : MonoBehaviour
 
     public void ConfigureArachnophobiaMode(bool isEnabled)
     {
-        
+        ArachnoBehaviour.ToggleArachnophobiaMode(isEnabled);
+    }
+
+    public void ToggleBrightness(bool on)
+    {
+        foreach (var light in globalLights)
+        {
+            light.enabled = on;
+        }
+
+        Screen.brightness = on ? 1f : 0.2f;
     }
 }
