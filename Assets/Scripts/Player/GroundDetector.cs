@@ -8,7 +8,7 @@ public class GroundDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground") || collision.CompareTag("Moving Platform"))
+        if (collision.CompareTag("Ground") || collision.CompareTag("Moving Platform") || collision.CompareTag("Disappearing Platform"))
         {
             isGrounded = true;
             _groundCount++;
@@ -16,12 +16,16 @@ public class GroundDetector : MonoBehaviour
             {
                 transform.SetParent(collision.transform, true);
             }
+            else if (collision.CompareTag("Disappearing Platform"))
+            {
+                collision.GetComponent<DisappearingPlatform>().Disappear();
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground") || collision.CompareTag("Moving Platform"))
+        if (collision.CompareTag("Ground") || collision.CompareTag("Moving Platform") || collision.CompareTag("Disappearing Platform"))
         {
             _groundCount--;
             isGrounded = _groundCount > 0;
