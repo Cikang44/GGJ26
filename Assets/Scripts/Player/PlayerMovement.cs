@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private GroundDetector _groundDetector;
     private Animator _animator;
     private bool _isJumpOnCooldown = false;
+    public ParticleSystem boostParticleSystem;
     [HideInInspector] public bool isOnBoost = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         Move(direction);
 
         if (Input.GetKeyDown(KeyCode.W)) Jump();
-        
+
         _animator.SetInteger("Direction", direction);
         _animator.SetBool("Grounded", _groundDetector.isGrounded);
     }
@@ -75,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
         _playerRb.constraints ^= RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 
+        boostParticleSystem.Play();
         float timePassed = 0f;
         while (timePassed < boostHeight / boostSpeed)
         {
@@ -84,5 +86,6 @@ public class PlayerMovement : MonoBehaviour
         }
         _playerRb.linearVelocityY = boostSpeed / 2;
         isOnBoost = false;
+        boostParticleSystem.Stop();
     }
 }
