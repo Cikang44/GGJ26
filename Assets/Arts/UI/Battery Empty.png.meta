@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 87d31d463c1d549af89617ad3e45ab76
+guid: 087cc98b4bea7ed4b9c5bc43d6896ab3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6474883903819434044
-    second: explode_0
+      213: -9108975550980043385
+    second: Battery Empty_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: explode_0
+      name: Battery Empty_0
       rect:
         serializedVersion: 2
-        x: 44
-        y: 95
-        width: 550
-        height: 471
+        x: 0
+        y: 0
+        width: 1145
+        height: 548
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4c7b2f615679426a0800000000000000
-      internalID: -6474883903819434044
+      spriteID: 78dcd107ffa669180800000000000000
+      internalID: -9108975550980043385
       vertices: []
       indices: 
       edges: []
@@ -147,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      explode_0: -6474883903819434044
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
