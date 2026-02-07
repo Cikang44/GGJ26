@@ -1896,7 +1896,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
       propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6010713320578491507}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ToggleBrightness
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2121,6 +2149,30 @@ PrefabInstance:
     - target: {fileID: 6224416433121925297, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
       propertyPath: m_Name
       value: Arachnophobia Toggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5077070566915567518}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507668424998713756, guid: 841d06637ea1cdf489ced2abf606f2a6, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
