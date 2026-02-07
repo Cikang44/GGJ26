@@ -1,0 +1,51 @@
+{
+  "song": {
+    "song": "Example Battle",
+    "bpm": 120,
+    "needsVoices": true,
+    "speed": 2,
+    "player1": "bf",
+    "player2": "enemy",
+    "gf": "gf",
+    "stage": "stage",
+    "validScore": true,
+    "notes": [
+      {
+        "lengthInSteps": 16,
+        "bpm": 120,
+        "changeBPM": false,
+        "mustHitSection": true,
+        "sectionNotes": [
+          [0, 0, 0],
+          [500, 1, 0],
+          [1000, 2, 0],
+          [1500, 3, 0],
+          [2000, 0, 200],
+          [2500, 1, 0],
+          [3000, 2, 0],
+          [3500, 3, 0]
+        ],
+        "typeOfSection": 0,
+        "altAnim": false
+      },
+      {
+        "lengthInSteps": 16,
+        "bpm": 120,
+        "changeBPM": false,
+        "mustHitSection": false,
+        "sectionNotes": [
+          [4000, 4, 0],
+          [4500, 5, 0],
+          [5000, 6, 0],
+          [5500, 7, 0],
+          [6000, 4, 0],
+          [6500, 5, 0],
+          [7000, 6, 0],
+          [7500, 7, 300]
+        ],
+        "typeOfSection": 0,
+        "altAnim": false
+      }
+    ]
+  }
+}
