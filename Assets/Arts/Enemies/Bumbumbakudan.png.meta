@@ -120,6 +120,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -334,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Bumbumbakudan_0: 1224870479718740046
+      Bumbumbakudan_1: -7890659286358209111
+      Bumbumbakudan_2: -3840324081862036490
+      Bumbumbakudan_3: 7503021776484888065
+      Bumbumbakudan_4: 2524949005752891425
+      Bumbumbakudan_5: -5883917768366800520
+      Bumbumbakudan_6: -9196702040347341457
+      Bumbumbakudan_7: 353944010291108006
+      Bumbumbakudan_8: 2338716550917480988
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

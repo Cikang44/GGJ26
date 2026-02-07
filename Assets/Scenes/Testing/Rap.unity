@@ -1218,7 +1218,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Enemy
   difficultyLevel: 1
-  battleChartAsset: {fileID: 4900000, guid: 2beb8da129ef84cc8a774937ebf3862b, type: 3}
+  battleChartAsset:
+  - {fileID: 4900000, guid: d9987b81f026b4bd0b09a3b2440fe1d2, type: 3}
+  battleMusicClip:
+  - {fileID: 8300000, guid: 1d5cd87f3b8ad425787ea17075e369ae, type: 3}
   enemyBattleSprite: {fileID: 0}
   detectionRadius: 5
   detectionIndicator: {fileID: 0}
