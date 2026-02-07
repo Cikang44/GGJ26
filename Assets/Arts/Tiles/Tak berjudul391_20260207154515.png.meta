@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: fab2267c4fe16c84eb8889fe2ea7e306
+guid: decc92c9a06514bb9b202c5792633f09
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6256699321123796843
-    second: Battery and Switch (Metal)_0
-  - first:
-      213: 1556640810467319168
-    second: Battery and Switch (Metal)_1
-  - first:
-      213: -9160987820514639518
-    second: Battery and Switch (Metal)_2
-  - first:
-      213: 2128158212755526426
-    second: Battery and Switch (Metal)_3
-  - first:
-      213: -7540228273753161952
-    second: Battery and Switch (Metal)_4
+      213: 4784503257046177031
+    second: Tak berjudul391_20260207154515_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -125,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Battery and Switch (Metal)_0
+      name: Tak berjudul391_20260207154515_0
       rect:
         serializedVersion: 2
-        x: 650
-        y: 1232
-        width: 657
-        height: 338
+        x: 1506
+        y: 469
+        width: 275
+        height: 276
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,96 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b67f20612e244d650800000000000000
-      internalID: 6256699321123796843
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Battery and Switch (Metal)_1
-      rect:
-        serializedVersion: 2
-        x: 1342
-        y: 1232
-        width: 657
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 08dd7c6d19c4a9510800000000000000
-      internalID: 1556640810467319168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Battery and Switch (Metal)_2
-      rect:
-        serializedVersion: 2
-        x: 2034
-        y: 1232
-        width: 660
-        height: 338
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2618b8e3d12add080800000000000000
-      internalID: -9160987820514639518
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Battery and Switch (Metal)_3
-      rect:
-        serializedVersion: 2
-        x: 2020
-        y: 957
-        width: 423
-        height: 261
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a139f197e9cb88d10800000000000000
-      internalID: 2128158212755526426
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Battery and Switch (Metal)_4
-      rect:
-        serializedVersion: 2
-        x: 2020
-        y: 686
-        width: 423
-        height: 257
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 02ff599b55abb5790800000000000000
-      internalID: -7540228273753161952
+      spriteID: 705dfe6ec58f56240800000000000000
+      internalID: 4784503257046177031
       vertices: []
       indices: 
       edges: []
@@ -247,12 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Battery and Switch (Metal)_0: 6256699321123796843
-      Battery and Switch (Metal)_1: 1556640810467319168
-      Battery and Switch (Metal)_2: -9160987820514639518
-      Battery and Switch (Metal)_3: 2128158212755526426
-      Battery and Switch (Metal)_4: -7540228273753161952
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
