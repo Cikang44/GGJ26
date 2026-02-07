@@ -46,6 +46,7 @@ public class PlayerInteraction : MonoBehaviour
         foreach (Collider2D collider in hitColliders)
         {
             Enemy enemy = collider.GetComponent<Enemy>();
+            
             if (enemy != null)
             {
                 float distance = Vector2.Distance(transform.position, collider.transform.position);
@@ -56,6 +57,8 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
         }
+
+        Debug.Log($"Closest enemy: {(closestEnemy != null ? closestEnemy.name : "None")}");
         
         _nearbyEnemy = closestEnemy;
         _canInteract = _nearbyEnemy != null;
