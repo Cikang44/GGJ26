@@ -1,3 +1,4 @@
+using UnityEditor.EditorTools;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,8 +16,10 @@ public class Enemy : MonoBehaviour
     [Range(1, 5)] public int difficultyLevel = 1;
     
     [Header("Battle Settings")]
-    [Tooltip("FNF Chart JSON file for this enemy")]
-    public TextAsset battleChartAsset;
+    [Tooltip("Chart JSON file for this enemy")]
+    public TextAsset[] battleChartAsset;
+    [Tooltip("Audio clip for the battle music")]
+    public AudioClip[] battleMusicClip;
     
     [Tooltip("Character sprite for battle UI")]
     public Sprite enemyBattleSprite;

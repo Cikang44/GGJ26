@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Manages the rhythm battle system (FNF-like) and battle flow between player and enemies
@@ -188,9 +189,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     [Header("Audio")]
     [Tooltip("Audio source for instrumental track")]
     public AudioSource instrumentalSource;
-
-    [Tooltip("Audio source for vocals track")]
-    public AudioSource vocalsSource;
     
     [Header("Health System")]
     [Tooltip("Health bar fill image")]
@@ -250,6 +248,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         }
 
         IsBattleActive = true;
+        PlayerMovement.isInControl = false;
         currentEnemy = enemy;
 
         // Store battle positions
@@ -274,10 +273,12 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
             battleUICanvas.SetActive(true);
         }
 
-        // Load chart data
+        // Load chart data and music
+        int chartIndex = UnityEngine.Random.Range(0, enemy.battleChartAsset.Length);
+        instrumentalSource.clip = enemy.battleMusicClip[chartIndex];
         if (enemy.battleChartAsset != null)
         {
-            LoadChartFromJSON(enemy.battleChartAsset.text);
+            LoadChartFromJSON(enemy.battleChartAsset[chartIndex].text);
         }
         else
         {
@@ -347,11 +348,8 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         // Play music (if available)
         if (instrumentalSource != null && instrumentalSource.clip != null)
         {
+            Debug.Log($"Playing battle music: {instrumentalSource.clip.name}");
             instrumentalSource.Play();
-        }
-        if (vocalsSource != null && vocalsSource.clip != null)
-        {
-            vocalsSource.Play();
         }
 
         // Invoke event
@@ -372,6 +370,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         }
 
         IsBattleActive = false;
+        PlayerMovement.isInControl = true;
 
         // Notify enemy
         if (currentEnemy != null)
@@ -411,10 +410,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         if (instrumentalSource != null)
         {
             instrumentalSource.Stop();
-        }
-        if (vocalsSource != null)
-        {
-            vocalsSource.Stop();
         }
 
         // Invoke event
