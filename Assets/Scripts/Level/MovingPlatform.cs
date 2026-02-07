@@ -1,31 +1,45 @@
 using UnityEngine;
-using UnityEditor;
 using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public Transform[] paths;
+    public Transform[] pathTransforms;
+    public List<Vector3> _pathNodes = new();
     public float movingSpeed = 3f;
+    public float reverseDelay = 2f;
 
-    private int _currentTargetIndex = 0;
+    public int _currentTargetIndex = 0;
     private bool _reverseDirection = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        paths.Prepend(transform);
+        _pathNodes.Add(transform.position);
+        foreach (var tf in pathTransforms)
+        {
+            _pathNodes.Add(tf.position);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 moveDirection = paths[_currentTargetIndex].position - transform.position;
+        Vector3 moveDirection = _pathNodes[_currentTargetIndex] - transform.position;
         moveDirection.z = 0;
-        Debug.Log(movingSpeed * Time.deltaTime + ", " + moveDirection.magnitude);
         if (movingSpeed * Time.deltaTime >= moveDirection.magnitude)
         {
-            transform.position = paths[_currentTargetIndex].position;
-            if (_currentTargetIndex == paths.Length - 1) _reverseDirection = true;
-            if (_currentTargetIndex == 0) _reverseDirection = false;
+            transform.position = _pathNodes[_currentTargetIndex];
+            if (_currentTargetIndex == _pathNodes.Count - 1)
+            {
+                if (!_reverseDirection) StartCoroutine(ReverseTimer());
+                _reverseDirection = true;
+            }
+            if (_currentTargetIndex == 0)
+            {
+                if (!_reverseDirection) StartCoroutine(ReverseTimer());
+                _reverseDirection = false;
+            }
             _currentTargetIndex += _reverseDirection ? -1 : 1;
         }
         else
@@ -35,13 +49,31 @@ public class MovingPlatform : MonoBehaviour
         }
     }
 
+    private IEnumerator ReverseTimer()
+    {
+        float originalSpeed = movingSpeed;
+        movingSpeed = 0;
+        yield return new WaitForSeconds(reverseDelay);
+        movingSpeed = originalSpeed;
+    }
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(transform.position, paths[0].position);
-        for (int i = 0; i < paths.Length - 1; i++)
+        if (_pathNodes == null || _pathNodes.Count == 0)
         {
-            Gizmos.DrawLine(paths[i].position, paths[i + 1].position);
+            Gizmos.DrawLine(transform.position, pathTransforms[0].position);
+            for (int i = 0; i < pathTransforms.Length - 1; i++)
+            {
+                Gizmos.DrawLine(pathTransforms[i].position, pathTransforms[i + 1].position);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _pathNodes.Count - 1; i++)
+            {
+                Gizmos.DrawLine(_pathNodes[i], _pathNodes[i + 1]);
+            }
         }
     }
 }
