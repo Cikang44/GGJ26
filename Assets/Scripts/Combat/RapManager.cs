@@ -177,7 +177,8 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
 
     [Header("Events")]
     public UnityEvent<Enemy> OnBattleStart;
-    public UnityEvent<bool> OnBattleEnd; // bool = player won
+    public UnityEvent<bool> 
+    OnBattleEnd; // bool = player won
     public UnityEvent<Note> OnNoteHit;
     public UnityEvent<Note> OnNoteMiss;
 
@@ -286,9 +287,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                     _totalPlayerNotes++;
             }
             
-            // Calculate health changes per note
-            // If player hits all notes, they gain 50 health (50->100)
-            // If player misses all notes, they lose 50 health (50->0)
             if (_totalPlayerNotes > 0)
             {
                 _healthPerPlayerNote = 50f / _totalPlayerNotes; // Hitting all notes = +50 health
@@ -390,6 +388,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     /// </summary>
     public void OnBattleVictory()
     {
+        if (currentEnemy != null) Destroy(currentEnemy.gameObject);
         EndBattle(true);
     }
 
@@ -399,6 +398,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     public void OnBattleDefeat()
     {
         EndBattle(false);
+        player.GetComponent<HealthBehaviour>().TakeDamage(50);
     }
 
     /// <summary>
@@ -734,12 +734,22 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         }
     }
     
+    public void OnSongEnd()
+    {
+        if (_currentHealth > 25f)
+        {
+            OnBattleVictory();
+        }
+        else
+        {
+            OnBattleDefeat();
+        }
+    }
     private void CheckWinLoseCondition()
     {
         if (_currentHealth <= 0f)
         {
             // Player lost
-            Debug.Log("Player health depleted! Battle lost.");
             OnBattleDefeat();
         }
     }

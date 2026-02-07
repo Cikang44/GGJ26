@@ -47,6 +47,8 @@ public class NoteSpawner : MonoBehaviour
     private bool _isPlaying;
     private float _chartBPM;
     private float _chartSpeed;
+    private bool _songEnded;
+    private float _lastNoteTime; // Time of the last note in the chart
 
     public void Initialize(List<RapManager.Note> notes, float bpm, float chartSpeed)
     {
@@ -55,11 +57,23 @@ public class NoteSpawner : MonoBehaviour
         _activeNotes.Clear();
         _chartBPM = bpm;
         _chartSpeed = chartSpeed;
+        _songEnded = false;
         
         // Sort notes by time
         _chartNotes.Sort((a, b) => a.time.CompareTo(b.time));
         
-        Debug.Log($"NoteSpawner initialized: {notes.Count} notes, BPM: {bpm}, Speed: {chartSpeed}");
+        // Find the last note time (including sustain)
+        _lastNoteTime = 0f;
+        foreach (var note in _chartNotes)
+        {
+            float noteEndTime = note.time + note.sustainLength;
+            if (noteEndTime > _lastNoteTime)
+            {
+                _lastNoteTime = noteEndTime;
+            }
+        }
+        
+        Debug.Log($"NoteSpawner initialized: {notes.Count} notes, BPM: {bpm}, Speed: {chartSpeed}, Last note time: {_lastNoteTime}ms");
     }
 
     public void StartSpawning()
@@ -104,6 +118,9 @@ public class NoteSpawner : MonoBehaviour
         
         // Clean up missed notes
         CleanupNotes();
+        
+        // Check if song has ended
+        CheckSongEnd(currentTime);
     }
 
     private void SpawnNotes(float currentTime)
@@ -237,6 +254,29 @@ public class NoteSpawner : MonoBehaviour
         }
     }
 
+    private void CheckSongEnd(float currentTime)
+    {
+        if (_songEnded) return;
+        
+        // Check if all notes have been spawned and we're past the last note time (with some grace period)
+        float gracePeriod = 2000f; // 2 seconds after last note
+        if (_nextNoteIndex >= _chartNotes.Count && currentTime > _lastNoteTime + gracePeriod)
+        {
+            _songEnded = true;
+            OnSongEnd();
+        }
+    }
+    
+    private void OnSongEnd()
+    {
+        Debug.Log("Song ended!");
+        
+        if (RapManager.Instance != null)
+        {
+            RapManager.Instance.OnSongEnd();
+        }
+    }
+    
     private void CleanupNotes()
     {
         _activeNotes.RemoveAll(note => note == null);
