@@ -46,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
         foreach (Collider2D collider in hitColliders)
         {
             Enemy enemy = collider.GetComponent<Enemy>();
-            if (enemy != null && !enemy.IsDefeated)
+            if (enemy != null)
             {
                 float distance = Vector2.Distance(transform.position, collider.transform.position);
                 if (distance < closestDistance)
