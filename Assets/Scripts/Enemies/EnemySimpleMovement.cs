@@ -21,11 +21,12 @@ public class EnemySimpleMovement : MonoBehaviour
 
     private void Update()
     {   
+        if (PlayerMovement.isInControl == false) return;
 
         if (idleTimer > 0)
         {
             idleTimer -= Time.deltaTime;
-            _rigidbody2D.linearVelocity = Vector2.zero;
+            _rigidbody2D.linearVelocity = new Vector2(0, _rigidbody2D.linearVelocity.y);
             _animator.SetFloat("Direction", 0);
             return;
         }
