@@ -3,8 +3,14 @@ using UnityEngine;
 public class LaserEnemyBehaviour : MonoBehaviour
 {
     public GameObject laserPrefab;
-    public float laserInterval = 3f;
+    public float laserInterval = 1f;
+    public float initialDelay = 1f / 6 * 5f;
     private float _laserTimer;
+
+    private void Start()
+    {
+        _laserTimer = -initialDelay + laserInterval;
+    }
 
     private void FixedUpdate()
     {
@@ -18,7 +24,6 @@ public class LaserEnemyBehaviour : MonoBehaviour
 
     private void ShootLaser()
     {
-        Instantiate(laserPrefab, transform.position, 
-            Quaternion.LookRotation(transform.forward) * Quaternion.Euler(0, 0, 90));
+        Instantiate(laserPrefab, transform.position, transform.localScale.x > 0 ? Quaternion.Euler(0, 0, 180) : Quaternion.Euler(0, 0, 0));
     }
 }

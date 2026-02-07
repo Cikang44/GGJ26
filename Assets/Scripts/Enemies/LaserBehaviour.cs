@@ -20,7 +20,7 @@ public class LaserBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         var health = other.GetComponent<HealthBehaviour>();
-        if (health != null)
+        if (health != null && other.CompareTag("Player"))
         {
             health.TakeDamage(damage);
         }
