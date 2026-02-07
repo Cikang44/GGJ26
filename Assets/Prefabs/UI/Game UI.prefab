@@ -1053,9 +1053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a17181317c83741865ea430ff40f87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batteryHighSprite: {fileID: 21300000, guid: 7e701adbc86f0ee4dbe2058224ce55e5, type: 3}
-  batteryMediumSprite: {fileID: 21300000, guid: 66f4367dc613cca4690e08422a255e90, type: 3}
-  batteryLowSprite: {fileID: 21300000, guid: b8feb32a9569c244182e3e68172cbc4d, type: 3}
+  batteryHighSprite: {fileID: 6256699321123796843, guid: fab2267c4fe16c84eb8889fe2ea7e306, type: 3}
+  batteryMediumSprite: {fileID: 1556640810467319168, guid: fab2267c4fe16c84eb8889fe2ea7e306, type: 3}
+  batteryLowSprite: {fileID: -9160987820514639518, guid: fab2267c4fe16c84eb8889fe2ea7e306, type: 3}
   batteryEmptySprite: {fileID: -9108975550980043385, guid: 087cc98b4bea7ed4b9c5bc43d6896ab3, type: 3}
   batteryImage: {fileID: 6868113387651485146}
   batteryPercentageText: {fileID: 9187410248665119517}
@@ -1128,7 +1128,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8548b9dffe76ee941a2b6c00a0528482, type: 3}
+  m_Sprite: {fileID: -4132877375901865839, guid: c0a562e33af526c4aaafbe2f99e34880, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1477,7 +1477,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7e701adbc86f0ee4dbe2058224ce55e5, type: 3}
+  m_Sprite: {fileID: 6256699321123796843, guid: fab2267c4fe16c84eb8889fe2ea7e306, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
