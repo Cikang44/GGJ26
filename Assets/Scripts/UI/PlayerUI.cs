@@ -57,11 +57,11 @@ public class PlayerUI : MonoBehaviour
     private void UpdateBattery()
     {
         batteryPercentageText.text = Mathf.CeilToInt(_playerBattery.batteryPercentage).ToString() + "%";
-        if (_playerBattery.batteryPercentage > 2f / 3f)
+        if (_playerBattery.batteryPercentage > 2f / 3f * 100)
         {
             batteryImage.sprite = batteryHighSprite;
         }
-        else if (_playerBattery.batteryPercentage > 1f / 3f)
+        else if (_playerBattery.batteryPercentage > 1f / 3f * 100)
         {
             batteryImage.sprite = batteryMediumSprite;
         }
