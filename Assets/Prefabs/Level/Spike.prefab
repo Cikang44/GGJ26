@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 203741169be1eb149a41e21a0e331c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canLockPosition: 1
+  canLockPosition: 0
   lockPositionOffset: {x: 0, y: 0.5}
 --- !u!50 &4105993273810334488
 Rigidbody2D:

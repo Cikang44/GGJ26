@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cc539daaaa6a37f479b8c2c67037373c
+guid: 276a1fe157168ad41929d303ef8e5ccc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9063452133925367640
-    second: Le brainstrommm_0
+      213: -6826520681485392338
+    second: Le brainstrommm (3)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Le brainstrommm_0
+      name: Platform 2_0
       rect:
         serializedVersion: 2
-        x: 572
-        y: 476
-        width: 1454
+        x: 555
+        y: 485
+        width: 1453
         height: 342
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -113,10 +113,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 85fa06112b9d7cd70800000000000000
-      internalID: 9063452133925367640
+      spriteID: 23450fb4f4144e346a3898975565485c
+      internalID: -185941970
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6d523a7b331ff064da371a41e09c2a51
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Platform 2_0: -185941970
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
