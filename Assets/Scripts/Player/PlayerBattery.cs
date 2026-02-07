@@ -8,8 +8,8 @@ public class PlayerBattery : MonoBehaviour
     [Range(0, 100)] public float lowBatteryPercentage = 10f;
     public bool isDrainingBattery = true;
     private bool _isLowBattery = false;
-    public UnityEvent OnZeroPercent;
-    public UnityEvent OnLowBattery;
+    public UnityEvent OnZeroPercent = new();
+    public UnityEvent OnLowBattery = new();
     void Update()
     {
         if (isDrainingBattery)
