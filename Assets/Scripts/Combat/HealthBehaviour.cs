@@ -4,8 +4,8 @@ using UnityEngine.Events;
 public class HealthBehaviour : MonoBehaviour
 {
     public int health = 1;
-    public UnityEvent OnHeal;
-    public UnityEvent OnDeath;
+    public UnityEvent OnHeal = new();
+    public UnityEvent OnDeath = new();
     public void Heal(int healed)
     {
         health += healed;

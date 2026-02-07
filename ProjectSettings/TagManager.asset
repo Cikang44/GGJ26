@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Moving Platform
+  - Disappearing Platform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - 

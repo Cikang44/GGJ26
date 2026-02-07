@@ -7,9 +7,13 @@ public class PlayerMovement : MonoBehaviour
 {
     [Min(0)] public float speed = 3;
     [Min(0)] public float jumpHeight = 3;
+    [Min(0)] public float boostSpeed = 10;
+    [Min(0)] public float boostHeight = 3;
+    [Min(0)] public float boostDelay = 1;
     private Rigidbody2D _playerRb;
     private GroundDetector _groundDetector;
     private bool _isJumpOnCooldown = false;
+    [HideInInspector] public bool isOnBoost = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (_groundDetector.isGrounded && !_isJumpOnCooldown)
+        if (_groundDetector.isGrounded && !_isJumpOnCooldown && !isOnBoost)
         {
             if (_playerRb.linearVelocityY < 0) _playerRb.linearVelocityY = 0;
             _playerRb.linearVelocityY += Mathf.Sqrt(2 * Physics2D.gravity.magnitude * jumpHeight);
@@ -45,10 +49,35 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private static readonly WaitForSeconds _waitForSeconds0_1 = new(0.1f);
-    IEnumerator JumpCooldown()
+    private IEnumerator JumpCooldown()
     {
         _isJumpOnCooldown = true;
         yield return _waitForSeconds0_1;
         _isJumpOnCooldown = false;
+    }
+
+    public void Boost(Vector3 startPosition)
+    {
+        StartCoroutine(BoostCoroutine(startPosition));
+    }
+    private IEnumerator BoostCoroutine(Vector3 startPosition)
+    {
+        isOnBoost = true;
+        transform.position = startPosition;
+        _playerRb.constraints |= RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+
+        yield return new WaitForSeconds(boostDelay);
+
+        _playerRb.constraints ^= RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+
+        float timePassed = 0f;
+        while (timePassed < boostHeight / boostSpeed)
+        {
+            yield return null;
+            timePassed += Time.deltaTime;
+            _playerRb.linearVelocityY = boostSpeed;
+        }
+        _playerRb.linearVelocityY = boostSpeed / 2;
+        isOnBoost = false;
     }
 }
