@@ -89,7 +89,7 @@ public class SceneTransitionManager : MonoBehaviour
         else yield return new WaitForSeconds(timeInSeconds);
         Time.timeScale = 1;
         yield return SceneManager.LoadSceneAsync(name);
-        if (transitionOnStart) TransitionIn(); // Transisi setelah loading
+        TransitionIn(); // Transisi setelah loading
     }
     IEnumerator LoadScene(int index, float timeInSeconds)
     {
@@ -97,6 +97,6 @@ public class SceneTransitionManager : MonoBehaviour
         else yield return new WaitForSeconds(timeInSeconds);
         Time.timeScale = 1;
         yield return SceneManager.LoadSceneAsync(index);
-        if (transitionOnStart) TransitionIn(); // Transisi setelah loading
+        TransitionIn(); // Transisi setelah loading
     }
 }
