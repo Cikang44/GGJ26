@@ -224,14 +224,20 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     {
         base.Awake();
 
-        if (player != null)
-        {
-            _playerMovement = player.GetComponent<PlayerMovement>();
-        }
-
         if (battleUICanvas != null)
         {
             battleUICanvas.SetActive(false);
+        }
+    }
+
+    public void Start()
+    {
+        if (player == null) player = FindFirstObjectByType<PlayerMovement>().gameObject;
+        if (mainCamera == null) mainCamera = Camera.main;
+        
+        if (player != null)
+        {
+            _playerMovement = player.GetComponent<PlayerMovement>();
         }
     }
 
@@ -242,6 +248,8 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     /// </summary>
     public void StartBattle(Enemy enemy)
     {
+        Debug.Log(IsBattleActive);
+        Debug.Log(enemy);
         if (IsBattleActive || enemy == null)
         {
             return;
