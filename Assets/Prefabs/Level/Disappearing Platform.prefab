@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 128664946200043473, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
       propertyPath: m_Name
-      value: Disappearing Platform 1
+      value: Disappearing Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 128664946200043473, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
+      propertyPath: m_TagString
+      value: Disappearing Platform
       objectReference: {fileID: 0}
     - target: {fileID: 735445074064282475, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -22,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1691134714261295145, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 3.774153
       objectReference: {fileID: 0}
     - target: {fileID: 1691134714261295145, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.244754
       objectReference: {fileID: 0}
     - target: {fileID: 1691134714261295145, guid: 1ff0fee5bbaadfb4ba9bf67038d71965, type: 3}
       propertyPath: m_LocalPosition.z
@@ -90,5 +94,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canAppearAgain: 1
-  disappearDelay: 3
+  disappearDelay: 2
   appearDelay: 3
