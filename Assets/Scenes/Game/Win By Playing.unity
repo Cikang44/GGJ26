@@ -430,21 +430,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 386852602064114483, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1432616562431696876, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1935762748662276805, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1935762748662276805, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1935762748662276805, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 950
       objectReference: {fileID: 0}
     - target: {fileID: 1935762748662276805, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 2698840744714922134, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
       propertyPath: m_AnchorMax.y
@@ -464,9 +472,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6003239130276344308, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
       propertyPath: m_text
-      value: 'You win by quitting!
+      value: 'You win by just playing!
 
-        The game is over!'
+        The game is already over!
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 6003239130276344308, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
       propertyPath: m_fontColor.b
@@ -487,6 +497,10 @@ PrefabInstance:
     - target: {fileID: 7018175957549627838, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
       propertyPath: m_Name
       value: Game Over Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8811860642873452977, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8941589642336901237, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
       propertyPath: m_Pivot.x
