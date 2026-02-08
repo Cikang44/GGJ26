@@ -18,15 +18,14 @@ public class LaserEnemyBehaviour : MonoBehaviour
         _laserTimer += Time.fixedDeltaTime;
         if (_laserTimer >= laserInterval)
         {
-            ShootLaser();
+            if (PlayerMovement.isInControl) ShootLaser();
             _laserTimer = 0f;
         }
     }
 
     private void ShootLaser()
     {
-        Debug.Log("Laser Enemy Shooting Laser");
-        GameObject laser = Instantiate(laserPrefab, transform.position, transform.localScale.x > 0 ? Quaternion.Euler(0, 0, 180) : Quaternion.identity);
+        Instantiate(laserPrefab, transform.position, transform.localScale.x > 0 ? Quaternion.Euler(0, 0, 180) : Quaternion.identity);
         laserSound.Play();
     }
 }

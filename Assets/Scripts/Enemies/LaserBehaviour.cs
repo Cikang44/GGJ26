@@ -15,6 +15,12 @@ public class LaserBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, 0.1f);
+        if ((bool)(hit.collider?.CompareTag("Ground")))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

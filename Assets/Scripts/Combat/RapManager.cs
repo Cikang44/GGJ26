@@ -211,6 +211,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     #endregion
 
     private PlayerMovement _playerMovement;
+    private PlayerBattery _playerBattery;
     private Vector3 _playerBattlePosition;
     private Vector3 _enemyBattlePosition;
     private float _currentBattleTime = 0f;
@@ -242,6 +243,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         if (player != null)
         {
             _playerMovement = player.GetComponent<PlayerMovement>();
+            _playerBattery = player.GetComponent<PlayerBattery>();
         }
     }
 
@@ -252,8 +254,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     /// </summary>
     public void StartBattle(Enemy enemy)
     {
-        Debug.Log(IsBattleActive);
-        Debug.Log(enemy);
         if (IsBattleActive || enemy == null)
         {
             return;
@@ -262,6 +262,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         IsBattleActive = true;
         PlayerMovement.isInControl = false;
         currentEnemy = enemy;
+        _playerBattery.EnterSleepMode();
 
         // Store battle positions
         if (player != null)
@@ -383,6 +384,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
 
         IsBattleActive = false;
         PlayerMovement.isInControl = true;
+        _playerBattery.WakeUp();
 
         // Notify enemy
         if (currentEnemy != null)

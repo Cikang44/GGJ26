@@ -14,6 +14,7 @@ public class HealthBehaviour : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        if (PlayerMovement.isInControl == false) return;
         health -= damage;
         OnDamaged.Invoke(damage);
         if (health <= 0) OnDeath.Invoke();

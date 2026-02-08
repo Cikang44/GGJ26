@@ -48,7 +48,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isInControl) return;
+        if (!isInControl)
+        {
+            Move(0);
+            _animator.SetInteger("Direction", 0);
+            return;    
+        }
+
         int direction = 0;
         if (Input.GetKey(KeyCode.A)) direction -= 1;
         if (Input.GetKey(KeyCode.D)) direction += 1;
