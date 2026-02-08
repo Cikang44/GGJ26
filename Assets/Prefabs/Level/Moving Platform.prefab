@@ -296,7 +296,9 @@ MonoBehaviour:
   _pathNodes: []
   movingSpeed: 3
   reverseDelay: 2
-  movingSound: {fileID: 0}
+  movingSound: {fileID: 7787151495896842017}
+  fullVolumeDistance: 1
+  noVolumeDistance: 10
   _currentTargetIndex: 0
 --- !u!82 &7787151495896842017
 AudioSource:

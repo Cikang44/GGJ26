@@ -68,7 +68,7 @@ public class MovingPlatform : MonoBehaviour
         }
         else if (distanceToPlayer <= noVolumeDistance)
         {
-            movingSound.volume = 1 - (noVolumeDistance - fullVolumeDistance - distanceToPlayer) / (noVolumeDistance - fullVolumeDistance);
+            movingSound.volume = (noVolumeDistance - distanceToPlayer) / (noVolumeDistance - fullVolumeDistance);
         }
         else
         {
