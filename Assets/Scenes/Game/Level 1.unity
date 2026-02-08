@@ -191,8 +191,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -275,8 +275,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -359,8 +359,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -405,7 +405,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.2
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 00000000031373c6
@@ -527,8 +527,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -611,8 +611,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -695,8 +695,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -779,8 +779,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -863,8 +863,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -947,8 +947,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1031,8 +1031,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1115,8 +1115,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1713,8 +1713,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1797,8 +1797,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -1881,8 +1881,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -2022,8 +2022,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -3661,8 +3661,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -3745,8 +3745,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -3829,8 +3829,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -3970,8 +3970,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -4168,8 +4168,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -4252,8 +4252,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -4454,8 +4454,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -45019,8 +45019,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -45162,8 +45162,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -45335,8 +45335,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -45476,8 +45476,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -45560,8 +45560,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -45680,6 +45680,122 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game UI
       objectReference: {fileID: 0}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: globalLights.Array.size
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1870150022}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[1]'
+      value: 
+      objectReference: {fileID: 249952331}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2057416401}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[3]'
+      value: 
+      objectReference: {fileID: 198987490}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[4]'
+      value: 
+      objectReference: {fileID: 727270591}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[5]'
+      value: 
+      objectReference: {fileID: 490545581}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1554359611}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[7]'
+      value: 
+      objectReference: {fileID: 720456350}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[8]'
+      value: 
+      objectReference: {fileID: 649202711}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[9]'
+      value: 
+      objectReference: {fileID: 468403778}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[10]'
+      value: 
+      objectReference: {fileID: 1747173413}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[11]'
+      value: 
+      objectReference: {fileID: 69279188}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[12]'
+      value: 
+      objectReference: {fileID: 1987920013}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[13]'
+      value: 
+      objectReference: {fileID: 1565263111}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[14]'
+      value: 
+      objectReference: {fileID: 1073317977}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[15]'
+      value: 
+      objectReference: {fileID: 1215599448}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[16]'
+      value: 
+      objectReference: {fileID: 181039067}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[17]'
+      value: 
+      objectReference: {fileID: 71093602}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[18]'
+      value: 
+      objectReference: {fileID: 1039749225}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[19]'
+      value: 
+      objectReference: {fileID: 2000070985}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[20]'
+      value: 
+      objectReference: {fileID: 1907358438}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[21]'
+      value: 
+      objectReference: {fileID: 1833604832}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[22]'
+      value: 
+      objectReference: {fileID: 1276170934}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[23]'
+      value: 
+      objectReference: {fileID: 1300853446}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[24]'
+      value: 
+      objectReference: {fileID: 53073691}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[25]'
+      value: 
+      objectReference: {fileID: 1283270953}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[26]'
+      value: 
+      objectReference: {fileID: 1159466270}
+    - target: {fileID: 6010713320578491507, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
+      propertyPath: 'globalLights.Array.data[27]'
+      value: 
+      objectReference: {fileID: 1417602608}
     - target: {fileID: 6258587745208144804, guid: 9aa2c8550b1163440963f8c39a1af088, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -45886,8 +46002,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 10
+  m_PointLightInnerRadius: 1
+  m_PointLightOuterRadius: 12
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
