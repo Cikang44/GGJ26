@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  jumpHeight: 1.5
+  jumpHeight: 3
   boostSpeed: 7
   boostHeight: 8
   boostDelay: 0
@@ -1098,8 +1098,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: I quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90d6d9e7743126341b7db3e5eb3085e1, type: 2}
-  m_sharedMaterial: {fileID: 149915396453103684, guid: 90d6d9e7743126341b7db3e5eb3085e1, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 1db11be658c935d45b4414b422ff24b7, type: 2}
+  m_sharedMaterial: {fileID: -2043323987231245957, guid: 1db11be658c935d45b4414b422ff24b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
