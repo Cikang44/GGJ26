@@ -37,7 +37,7 @@ public class PlayerInteraction : MonoBehaviour
     private void CheckForNearbyEnemies()
     {
         // Find all colliders within detection radius
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayer);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius, enemyLayer);    
 
         Enemy closestEnemy = null;
         float closestDistance = float.MaxValue;

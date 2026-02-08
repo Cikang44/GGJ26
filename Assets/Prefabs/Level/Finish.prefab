@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 3717711710547219867}
   - component: {fileID: 6515758880936303976}
   - component: {fileID: 2913004172785160071}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button Collect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 6701834431315526548}
   - component: {fileID: 7971724361572030614}
   - component: {fileID: 8219765132135334627}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Button Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
