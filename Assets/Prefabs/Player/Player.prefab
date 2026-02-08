@@ -201,7 +201,7 @@ MonoBehaviour:
   speed: 4
   jumpHeight: 1.5
   boostSpeed: 10
-  boostHeight: 4
+  boostHeight: 8
   boostDelay: 0
   boostParticleSystem: {fileID: 5828521772681428290}
   isOnBoost: 0

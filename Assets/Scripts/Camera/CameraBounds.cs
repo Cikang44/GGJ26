@@ -20,7 +20,7 @@ public class CameraBounds : MonoBehaviour
         boundsSize.x = Mathf.Max(boundsSize.x, _camera.orthographicSize * _camera.aspect * 2);
         boundsSize.y = Mathf.Max(boundsSize.y, _camera.orthographicSize * 2);
         _bounds.max = new Vector3(boundsCenter.x + boundsSize.x / 2 - _camera.orthographicSize * _camera.aspect, boundsCenter.y + boundsSize.y / 2 - _camera.orthographicSize, 0);
-        _bounds.min = new Vector3(boundsCenter.x + boundsSize.x / 2 - _camera.orthographicSize * _camera.aspect, boundsCenter.y + boundsSize.y / 2 - _camera.orthographicSize, 0) * -1;
+        _bounds.min = new Vector3(-boundsCenter.x + boundsSize.x / 2 - _camera.orthographicSize * _camera.aspect, -boundsCenter.y + boundsSize.y / 2 - _camera.orthographicSize, 0) * -1;
 
         transform.position = new(
             Mathf.Clamp(transform.position.x, _bounds.min.x, _bounds.max.x),
