@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerBattery : MonoBehaviour
 {
@@ -8,8 +9,12 @@ public class PlayerBattery : MonoBehaviour
     [Range(0, 100)] public float lowBatteryPercentage = 10f;
     public bool isDrainingBattery = true;
     private bool _isLowBattery = false;
-    public UnityEvent OnZeroPercent;
-    public UnityEvent OnLowBattery;
+    public UnityEvent OnZeroPercent = new();
+    public UnityEvent OnLowBattery = new();
+    void Start()
+    {
+        OnZeroPercent.AddListener(() => SceneManager.LoadScene("Game Over By No Battery"));
+    }
     void Update()
     {
         if (isDrainingBattery)
@@ -22,7 +27,7 @@ public class PlayerBattery : MonoBehaviour
             }
             if (batteryPercentage <= 0)
             {
-                batteryPercentage = 0;   
+                batteryPercentage = 0;
                 OnZeroPercent.Invoke();
                 isDrainingBattery = false;
             }

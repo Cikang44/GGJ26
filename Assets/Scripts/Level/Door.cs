@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Interactable))]
@@ -6,6 +7,8 @@ public class Door : MonoBehaviour
     private bool _hasOpened = false;
     private Interactable _interactable;
     public GameObject trapdoor;
+    private GameObject _player;
+    private Collider2D _playerCollider;
     private SpriteRenderer _trapdoorSpriteRenderer;
     private Animator _trapdoorAnimator;
     void Start()
@@ -13,6 +16,9 @@ public class Door : MonoBehaviour
         _interactable = GetComponent<Interactable>();
         _trapdoorSpriteRenderer = trapdoor.GetComponent<SpriteRenderer>();
         _trapdoorAnimator = trapdoor.GetComponent<Animator>();
+
+        _player = GameObject.FindWithTag("Player");
+        _playerCollider = _player.GetComponent<Collider2D>();
     }
     public void Open()
     {
@@ -21,8 +27,8 @@ public class Door : MonoBehaviour
             Debug.Log("OPENED!");
             _trapdoorSpriteRenderer.enabled = true;
             _trapdoorAnimator.Play("Trapdoor_Open");
-            _interactable.OnInteract.AddListener(Enter);
             _hasOpened = true;
+            StartCoroutine(EnterTrapdoorCoroutine());
         }
     }
     public void Enter()
@@ -31,5 +37,16 @@ public class Door : MonoBehaviour
         {
             Debug.Log("Entered!");
         }
+    }
+
+    private IEnumerator EnterTrapdoorCoroutine()
+    {
+        _trapdoorSpriteRenderer.enabled = true;
+        _trapdoorAnimator.Play("Trapdoor_Open");
+        yield return new WaitForSeconds(0.2f);
+        _playerCollider.enabled = false;
+        yield return new WaitForSeconds(0.1f);
+        _player.SetActive(false);
+        SceneTransitionManager.Instance.NextScene();
     }
 }
