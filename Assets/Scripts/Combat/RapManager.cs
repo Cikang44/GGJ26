@@ -220,6 +220,10 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     private int _totalPlayerNotes = 0;
     private float _healthPerPlayerNote = 0f;
 
+    [Header("Audios")]
+    public AudioSource hitSound;
+    public AudioSource missSound;
+
     public override void Awake()
     {
         base.Awake();
@@ -882,6 +886,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         _currentHealth = Mathf.Clamp(_currentHealth + healthGain, 0f, 100f);
         UpdateHealthBar();
         CheckWinLoseCondition();
+        if (hitSound != null) hitSound.Play();
     }
     
     public void OnPlayerSustainHold(float holdDurationMs)
@@ -899,6 +904,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         _currentHealth = Mathf.Clamp(_currentHealth - healthLoss, 0f, 100f);
         UpdateHealthBar();
         CheckWinLoseCondition();
+        if (missSound != null) missSound.Play();
     }
     
     private void UpdateHealthBar()
