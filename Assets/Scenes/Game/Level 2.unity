@@ -1440,8 +1440,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2042460496402191416, guid: b5c04777c46db2b4a84c269bdcacf3ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.0478501
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042460496402191416, guid: b5c04777c46db2b4a84c269bdcacf3ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.4
+      value: -0.54
       objectReference: {fileID: 0}
     - target: {fileID: 3429282746235624255, guid: b5c04777c46db2b4a84c269bdcacf3ff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1458,6 +1462,10 @@ PrefabInstance:
     - target: {fileID: 7024281232399127238, guid: b5c04777c46db2b4a84c269bdcacf3ff, type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225186348459233638, guid: b5c04777c46db2b4a84c269bdcacf3ff, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8672654276554238912, guid: b5c04777c46db2b4a84c269bdcacf3ff, type: 3}
       propertyPath: m_Name
@@ -2138,10 +2146,6 @@ PrefabInstance:
     - target: {fileID: 5394391531596751692, guid: b5e928d0b4b1b8a47be182492b104180, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6953689480045252683, guid: b5e928d0b4b1b8a47be182492b104180, type: 3}
-      propertyPath: enemyLayer.m_Bits
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

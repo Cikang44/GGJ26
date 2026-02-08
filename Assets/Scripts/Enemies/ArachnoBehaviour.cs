@@ -6,7 +6,7 @@ public class ArachnoBehaviour : MonoBehaviour
 
     public Animator animator;
     private Enemy enemy;
-    private EnemySimpleMovement enemySimpleMovement;
+    public EnemySimpleMovement enemySimpleMovement;
 
     private void Start()
     {
