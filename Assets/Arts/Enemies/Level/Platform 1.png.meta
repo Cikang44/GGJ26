@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fb02002b7e573e341a3014d8e285f4b4
+guid: 2c1e5e076a7f584458536796f92cf9c7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3520327682007643376
-    second: Button Socket Terisi_0
+      213: 166294127092993472
+    second: Le brainstrommm (2)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button Socket Terisi_0
+      name: Platform 1_0
       rect:
         serializedVersion: 2
-        x: 523
-        y: 377
-        width: 280
-        height: 560
+        x: 619
+        y: 487
+        width: 1427
+        height: 336
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01bc5fcef98452fc0800000000000000
-      internalID: -3520327682007643376
+      spriteID: 0cd8c95a0abce4200800000000000000
+      internalID: 166294127092993472
       vertices: []
       indices: 
       edges: []
@@ -125,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f818d22cb04b93747be8d449bb861999
+    spriteID: 702ea18772507364dbbb256ddd41ebb8
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Button Socket Terisi_0: -3520327682007643376
+      Platform 1_0: 166294127092993472
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

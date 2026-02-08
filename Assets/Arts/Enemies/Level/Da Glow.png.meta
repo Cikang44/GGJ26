@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 481c841e61aaa334ca0b9751ab459824
+guid: 65385bc45964ed2428b6e01d94a93c42
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8987045491280805389
-    second: Button Socket Kosong_0
+      213: -9130177819581068630
+    second: Da Glow_0
+  - first:
+      213: 3895045404533667298
+    second: Da Glow_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,27 +99,62 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button Socket Kosong_0
+      name: Da Glow_0
       rect:
         serializedVersion: 2
-        x: 442
-        y: 399
-        width: 280
-        height: 560
+        x: 367
+        y: 474
+        width: 881
+        height: 803
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0e7118424668bc70800000000000000
-      internalID: 8987045491280805389
+      spriteID: aaa48b795a71b4180800000000000000
+      internalID: -9130177819581068630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Da Glow_1
+      rect:
+        serializedVersion: 2
+        x: 878
+        y: 474
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e53f39982bfd0630800000000000000
+      internalID: 3895045404533667298
       vertices: []
       indices: 
       edges: []
@@ -125,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 9f5bf346258ae3147916448c79a72f28
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Button Socket Kosong_0: 8987045491280805389
+      Da Glow_0: -9130177819581068630
+      Da Glow_1: 3895045404533667298
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

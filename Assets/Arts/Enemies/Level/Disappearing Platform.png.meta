@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 65385bc45964ed2428b6e01d94a93c42
+guid: 5af71f92ff7baad42bb5e418a55b6427
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9130177819581068630
-    second: Da Glow_0
-  - first:
-      213: 3895045404533667298
-    second: Da Glow_1
+      213: -7850130747206115390
+    second: Le brainstrommm (4)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,49 +96,40 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Da Glow_0
+      name: Disappearing Platform_0
       rect:
         serializedVersion: 2
-        x: 367
-        y: 474
-        width: 881
-        height: 803
+        x: 515
+        y: 413
+        width: 1455
+        height: 343
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aaa48b795a71b4180800000000000000
-      internalID: -9130177819581068630
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Da Glow_1
-      rect:
-        serializedVersion: 2
-        x: 878
-        y: 474
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2e53f39982bfd0630800000000000000
-      internalID: 3895045404533667298
+      spriteID: 2cf586c5dabbe0390800000000000000
+      internalID: -7850130747206115390
       vertices: []
       indices: 
       edges: []
@@ -150,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 11b818f97f25a4b43839191826ed146e
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Da Glow_0: -9130177819581068630
-      Da Glow_1: 3895045404533667298
+      Disappearing Platform_0: -7850130747206115390
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
