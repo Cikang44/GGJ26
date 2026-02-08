@@ -11,8 +11,10 @@ public class PlayerBattery : MonoBehaviour
     private bool _isLowBattery = false;
     public UnityEvent OnZeroPercent = new();
     public UnityEvent OnLowBattery = new();
+    private Animator _animator;
     void Start()
     {
+        _animator = GetComponent<Animator>();
         GameOverScreen.lastBuildIndex = SceneManager.GetActiveScene().buildIndex;
         OnZeroPercent.AddListener(() => SceneManager.LoadScene("Game Over By No Battery"));
     }
@@ -43,10 +45,12 @@ public class PlayerBattery : MonoBehaviour
     public void EnterSleepMode()
     {
         isDrainingBattery = false;
+        _animator.Play("Player_Off");
     }
 
     public void WakeUp()
     {
         isDrainingBattery = true;
+        _animator.Play("Player_On");
     }
 }
