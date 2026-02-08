@@ -10,6 +10,11 @@ public class MovingPlatform : MonoBehaviour
     public float movingSpeed = 3f;
     public float reverseDelay = 2f;
 
+    public AudioSource movingSound;
+    public float fullVolumeDistance = 1f;
+    public float noVolumeDistance = 10f;
+    private Transform _playerTransform;
+
     public int _currentTargetIndex = 0;
     private bool _reverseDirection = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,6 +25,12 @@ public class MovingPlatform : MonoBehaviour
         {
             _pathNodes.Add(tf.position);
         }
+        if (movingSound != null)
+        {
+            movingSound.Play();
+            movingSound.loop = true;
+        }
+        _playerTransform = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -46,6 +57,22 @@ public class MovingPlatform : MonoBehaviour
         {
             Vector3 moveOffset = moveDirection.normalized * (movingSpeed * Time.deltaTime);
             transform.position += moveOffset;
+        }
+
+
+        Vector2 playerOffset = transform.position - _playerTransform.position;
+        float distanceToPlayer = playerOffset.magnitude;
+        if (distanceToPlayer <= fullVolumeDistance)
+        {
+            movingSound.volume = 1;
+        }
+        else if (distanceToPlayer <= noVolumeDistance)
+        {
+            movingSound.volume = 1 - (noVolumeDistance - fullVolumeDistance - distanceToPlayer) / (noVolumeDistance - fullVolumeDistance);
+        }
+        else
+        {
+            movingSound.volume = 0;
         }
     }
 
