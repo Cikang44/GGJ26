@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: a6984ff3aed35d0469a23e6c4fa7e633, type: 2}
+    - target: {fileID: 4243136894696435533, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6976bbbbdec964327a704ce5ba8bc98f, type: 2}
+    - target: {fileID: 4563252866026120741, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8553734245009393593, guid: c404b067df37241d0a64e0473d9b33c3, type: 3}
     - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
       propertyPath: m_Name
       value: Enemy Basic Variant
@@ -59,6 +67,22 @@ PrefabInstance:
     - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804567235362227999, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.3999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804567235362227999, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.2535584
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389861571668936049, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.3999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389861571668936049, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.2535584
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
