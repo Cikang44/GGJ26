@@ -17,7 +17,7 @@ public class LaserEnemyBehaviour : MonoBehaviour
         _laserTimer += Time.fixedDeltaTime;
         if (_laserTimer >= laserInterval)
         {
-            ShootLaser();
+            if (PlayerMovement.isInControl) ShootLaser();
             _laserTimer = 0f;
         }
     }
