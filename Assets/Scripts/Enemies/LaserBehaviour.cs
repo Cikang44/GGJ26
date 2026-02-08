@@ -5,7 +5,7 @@ public class LaserBehaviour : MonoBehaviour
     public float speed = 10f;
     public int damage = 1;
     public float lifetime = 5f;
-    private float _lifeTimer;
+    private float _lifeTimer = 0f;
 
     private void Update()
     {
@@ -23,8 +23,7 @@ public class LaserBehaviour : MonoBehaviour
         if (health != null && other.CompareTag("Player"))
         {
             health.TakeDamage(damage);
+            Destroy(gameObject);
         }
-        
-        Destroy(gameObject);
     }   
 }

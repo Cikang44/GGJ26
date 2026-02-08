@@ -10,6 +10,7 @@ public class EnemySimpleMovement : MonoBehaviour
 
     public float idleTimer = 2f;
 
+    private Vector2 _startPosition;
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
 
@@ -17,6 +18,7 @@ public class EnemySimpleMovement : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _startPosition = transform.position;
     }
 
     private void Update()
@@ -31,7 +33,7 @@ public class EnemySimpleMovement : MonoBehaviour
             return;
         }
 
-        _rigidbody2D.linearVelocity = _direction * moveSpeed;
+        _rigidbody2D.linearVelocity = new Vector2(_direction.x * moveSpeed, _rigidbody2D.linearVelocity.y);
         // if (Physics2D.Raycast(transform.position, _direction, 0.1f))
         // {
         //     _direction = -_direction;
@@ -42,7 +44,7 @@ public class EnemySimpleMovement : MonoBehaviour
         //     _animator.SetFloat("Direction", _direction.x);
         // }
         
-        if (transform.position.x > rightBoundary && _direction == Vector2.right)
+        if (transform.position.x > _startPosition.x + rightBoundary && _direction == Vector2.right)
         {
             _direction = Vector2.left;
             Vector3 scale = transform.localScale;
@@ -51,7 +53,7 @@ public class EnemySimpleMovement : MonoBehaviour
             idleTimer = 2f;
             _animator.SetFloat("Direction", _direction.x);
         }
-        else if (transform.position.x < leftBoundary && _direction == Vector2.left)
+        else if (transform.position.x < _startPosition.x + leftBoundary && _direction == Vector2.left)
         {
             _direction = Vector2.right;
             Vector3 scale = transform.localScale;
