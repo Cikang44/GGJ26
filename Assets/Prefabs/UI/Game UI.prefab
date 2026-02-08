@@ -58,7 +58,9 @@ MonoBehaviour:
   battleUICanvas: {fileID: 3435652595689308002}
   noteSpawner: {fileID: 7565127108702815242}
   playerDisplay: {fileID: 3042679935649924820}
+  playerBattleSprite: {fileID: -2311659948842064771, guid: 0fc4e42ada14b484ca82757dcb549cf8, type: 3}
   opponentDisplay: {fileID: 7959264749826092722}
+  opponentBattleSprite: {fileID: 8596640243658272642, guid: ecc52a00e7f434efab662cb44b7c98da, type: 3}
   instrumentalSource: {fileID: 5615254486629219698}
   healthBarFill: {fileID: 5602837640282625628}
   startingHealth: 50

@@ -183,8 +183,14 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     [Tooltip("Player character display in battle")]
     public BattleCharacterDisplay playerDisplay;
 
+    [Tooltip("Player character sprite for battle")]
+    public Sprite playerBattleSprite;
+
     [Tooltip("Opponent character display in battle")]
     public BattleCharacterDisplay opponentDisplay;
+
+    [Tooltip("Opponent character sprite for battle")]
+    public Sprite opponentBattleSprite;
 
     [Header("Audio")]
     [Tooltip("Audio source for instrumental track")]
@@ -274,6 +280,8 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
 
         // Notify enemy
         enemy.EnterBattle();
+        
+        
 
         // Disable player movement if needed
         if (disablePlayerMovement && _playerMovement != null)
@@ -311,10 +319,12 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         if (playerDisplay != null)
         {
             playerDisplay.gameObject.SetActive(true);
+            playerDisplay.characterImage.sprite = playerBattleSprite;
         }
         if (opponentDisplay != null)
         {
             opponentDisplay.gameObject.SetActive(true);
+            opponentDisplay.characterImage.sprite = opponentBattleSprite;
         }
 
         // Initialize note spawner
