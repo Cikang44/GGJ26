@@ -319,14 +319,14 @@ PrefabInstance:
     - target: {fileID: 3849722050747915152, guid: 874bd72c97b8a9241a26ac566eae9e00, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 473969146}
+      objectReference: {fileID: 1851300012}
     - target: {fileID: 3849722050747915152, guid: 874bd72c97b8a9241a26ac566eae9e00, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextScene
+      value: Play
       objectReference: {fileID: 0}
     - target: {fileID: 3849722050747915152, guid: 874bd72c97b8a9241a26ac566eae9e00, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneTransitionManager, Assembly-CSharp
+      value: MainMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4931568664025421228, guid: 874bd72c97b8a9241a26ac566eae9e00, type: 3}
       propertyPath: m_Pivot.x
@@ -455,17 +455,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4931568664025421228, guid: 874bd72c97b8a9241a26ac566eae9e00, type: 3}
   m_PrefabInstance: {fileID: 373152392}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &473969146 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4945674837104575639, guid: 172e3f5ed5eb324438d7ebc9c4900ec5, type: 3}
-  m_PrefabInstance: {fileID: 922048281}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48d715fdfa7b47e4bb92cde230a5190f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &758955034
 GameObject:
   m_ObjectHideFlags: 0

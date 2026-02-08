@@ -47,6 +47,7 @@ public class Door : MonoBehaviour
         _playerCollider.enabled = false;
         yield return new WaitForSeconds(0.1f);
         _player.SetActive(false);
+        yield return new WaitForSeconds(0.3f);
         SceneTransitionManager.Instance.NextScene();
     }
 }

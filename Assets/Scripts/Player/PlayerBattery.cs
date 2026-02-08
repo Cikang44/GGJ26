@@ -14,6 +14,7 @@ public class PlayerBattery : MonoBehaviour
     void Start()
     {
         OnZeroPercent.AddListener(() => SceneManager.LoadScene("Game Over By No Battery"));
+        GetComponent<HealthBehaviour>().OnDeath.AddListener(() => SceneManager.LoadScene("Game Over By Dying"));
     }
     void Update()
     {

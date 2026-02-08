@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ExitButton : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     public DragTransform daButton;
     public Transform daSocketButtonPosition;
@@ -18,6 +18,11 @@ public class ExitButton : MonoBehaviour
             daSocketButton.interactable = true;
             daButton.gameObject.SetActive(false);
         }
+    }
+
+    public void Play()
+    {
+        SceneTransitionManager.Instance.NextScene();
     }
 
     public void Exit()

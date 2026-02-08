@@ -72,6 +72,10 @@ public class PauseMenu : MonoBehaviour
         _playerQuit.Quit();
 
         yield return new WaitForSeconds(quitDelay);
+        _playerMovement.boostHeight = 100;
+        _playerMovement.Boost(_playerMovement.transform.position);
+
+        yield return new WaitForSeconds(quitDelay);
 
         SceneTransitionManager.Instance.GoToScene("Game Over By Quitting");
     }
