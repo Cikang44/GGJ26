@@ -62,7 +62,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         {
             List<Note> notes = new();
             if (sectionNotes == null) return notes;
-            
+
             foreach (var noteArray in sectionNotes)
             {
                 if (noteArray != null && noteArray.values != null && noteArray.values.Count >= 2)
@@ -70,7 +70,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                     float time = noteArray.values[0];
                     int noteData = (int)noteArray.values[1];
                     float sustain = noteArray.values.Count > 2 ? noteArray.values[2] : 0f;
-                    
+
                     if (!mustHitSection)
                     {
                         // Swap player and opponent notes
@@ -83,7 +83,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                             noteData -= 4; // Opponent notes become player notes
                         }
                     }
-                    
+
                     notes.Add(new Note(time, noteData, sustain)
                     {
                         altAnimation = altAnim
@@ -113,27 +113,27 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     public class ChartData
     {
         public SongData song; // Legacy format support
-        
+
         // Version 2.0.0 format
         public string version;
         public ScrollSpeed scrollSpeed;
         public NotesDifficulty notes;
         public string generatedBy;
     }
-    
+
     [Serializable]
     public class ScrollSpeed
     {
         public float normal = 1f;
     }
-    
+
     [Serializable]
     public class NotesDifficulty
     {
         public List<NoteData> easy = new();
         public List<NoteData> normal = new();
     }
-    
+
     [Serializable]
     public class NoteData
     {
@@ -189,11 +189,11 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     [Header("Audio")]
     [Tooltip("Audio source for instrumental track")]
     public AudioSource instrumentalSource;
-    
+
     [Header("Health System")]
     [Tooltip("Health bar fill image")]
     public UnityEngine.UI.Image healthBarFill;
-    
+
     [Tooltip("Starting health (0-100, 50 is center)")]
     public float startingHealth = 50f;
 
@@ -203,7 +203,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
 
     [Header("Events")]
     public UnityEvent<Enemy> OnBattleStart;
-    public UnityEvent<bool> 
+    public UnityEvent<bool>
     OnBattleEnd; // bool = player won
     public UnityEvent<Note> OnNoteHit;
     public UnityEvent<Note> OnNoteMiss;
@@ -238,7 +238,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     {
         if (player == null) player = FindFirstObjectByType<PlayerMovement>().gameObject;
         if (mainCamera == null) mainCamera = Camera.main;
-        
+
         if (player != null)
         {
             _playerMovement = player.GetComponent<PlayerMovement>();
@@ -319,7 +319,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         if (noteSpawner != null && currentChart != null)
         {
             List<Note> allNotes = GetAllNotes();
-            
+
             // Count player notes
             _totalPlayerNotes = 0;
             foreach (var note in allNotes)
@@ -327,19 +327,19 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                 if (note.IsPlayerNote())
                     _totalPlayerNotes++;
             }
-            
+
             if (_totalPlayerNotes > 0)
             {
                 _healthPerPlayerNote = 50f / _totalPlayerNotes; // Hitting all notes = +50 health
             }
-            
+
             Debug.Log($"Health per player note: {_healthPerPlayerNote:F3}");
             Debug.Log($"Total player notes: {_totalPlayerNotes}");
-            
+
             // Get BPM and speed based on chart format
             float bpm = 100f; // Default BPM for v2 format
             float speed = 1f;
-            
+
             if (currentChart.song != null)
             {
                 // Legacy format
@@ -352,7 +352,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                 speed = currentChart.scrollSpeed.normal;
                 // BPM is not specified in v2 format, use default or calculate from notes
             }
-            
+
             noteSpawner.Initialize(allNotes, bpm, speed);
             noteSpawner.StartSpawning();
         }
@@ -490,10 +490,10 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                     Debug.Log($"Loaded chart: {currentChart.song.song} - BPM: {currentChart.song.bpm}");
                     Debug.Log($"Sections: {currentChart.song.notes.Count}");
                 }
-                
+
                 int totalNotes = GetAllNotes().Count;
                 Debug.Log($"Total Notes: {totalNotes}");
-                
+
                 if (totalNotes == 0)
                 {
                     Debug.LogWarning("Chart loaded but contains no notes!");
@@ -509,7 +509,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
             Debug.LogError($"Error loading chart JSON: {e.Message}\n{e.StackTrace}");
         }
     }
-    
+
     /// <summary>
     /// Custom parser to handle FNF chart JSON with nested arrays
     /// </summary>
@@ -517,9 +517,9 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     {
         // Use Unity's built-in JSON parser with some preprocessing
         // Replace nested arrays format to make it JsonUtility-compatible
-        
+
         ChartData chartData = new ChartData();
-        
+
         // Simple JSON parsing (could use JsonUtility for non-nested parts)
         try
         {
@@ -529,7 +529,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                 Debug.LogError("Invalid chart format: could not parse JSON");
                 return null;
             }
-            
+
             // Detect format version
             if (rootDict.ContainsKey("version"))
             {
@@ -546,7 +546,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                 Debug.LogError("Invalid chart format: unknown format");
                 return null;
             }
-            
+
         }
         catch (Exception e)
         {
@@ -554,7 +554,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
             return null;
         }
     }
-    
+
     /// <summary>
     /// Parse legacy FNF chart format
     /// </summary>
@@ -562,97 +562,97 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     {
         ChartData chartData = new ChartData();
         chartData.song = new SongData();
-        
+
         var songDict = rootDict["song"] as Dictionary<string, object>;
         if (songDict == null)
         {
             Debug.LogError("Invalid chart format: 'song' is not an object");
             return null;
         }
-            
-            // Parse basic song properties
-            chartData.song.song = songDict.ContainsKey("song") ? songDict["song"].ToString() : "Unknown";
-            chartData.song.bpm = songDict.ContainsKey("bpm") ? Convert.ToSingle(songDict["bpm"]) : 120f;
-            chartData.song.speed = songDict.ContainsKey("speed") ? Convert.ToSingle(songDict["speed"]) : 1f;
-            chartData.song.player1 = songDict.ContainsKey("player1") ? songDict["player1"].ToString() : "bf";
-            chartData.song.player2 = songDict.ContainsKey("player2") ? songDict["player2"].ToString() : "dad";
-            
-            if (songDict.ContainsKey("gf"))
-                chartData.song.gf = songDict["gf"].ToString();
-            if (songDict.ContainsKey("stage"))
-                chartData.song.stage = songDict["stage"].ToString();
-            if (songDict.ContainsKey("needsVoices"))
-                chartData.song.needsVoices = Convert.ToBoolean(songDict["needsVoices"]);
-            if (songDict.ContainsKey("validScore"))
-                chartData.song.validScore = Convert.ToBoolean(songDict["validScore"]);
-            
-            // Parse sections (notes)
-            if (songDict.ContainsKey("notes"))
+
+        // Parse basic song properties
+        chartData.song.song = songDict.ContainsKey("song") ? songDict["song"].ToString() : "Unknown";
+        chartData.song.bpm = songDict.ContainsKey("bpm") ? Convert.ToSingle(songDict["bpm"]) : 120f;
+        chartData.song.speed = songDict.ContainsKey("speed") ? Convert.ToSingle(songDict["speed"]) : 1f;
+        chartData.song.player1 = songDict.ContainsKey("player1") ? songDict["player1"].ToString() : "bf";
+        chartData.song.player2 = songDict.ContainsKey("player2") ? songDict["player2"].ToString() : "dad";
+
+        if (songDict.ContainsKey("gf"))
+            chartData.song.gf = songDict["gf"].ToString();
+        if (songDict.ContainsKey("stage"))
+            chartData.song.stage = songDict["stage"].ToString();
+        if (songDict.ContainsKey("needsVoices"))
+            chartData.song.needsVoices = Convert.ToBoolean(songDict["needsVoices"]);
+        if (songDict.ContainsKey("validScore"))
+            chartData.song.validScore = Convert.ToBoolean(songDict["validScore"]);
+
+        // Parse sections (notes)
+        if (songDict.ContainsKey("notes"))
+        {
+            var notesList = songDict["notes"] as List<object>;
+            if (notesList != null)
             {
-                var notesList = songDict["notes"] as List<object>;
-                if (notesList != null)
+                foreach (var sectionObj in notesList)
                 {
-                    foreach (var sectionObj in notesList)
+                    var sectionDict = sectionObj as Dictionary<string, object>;
+                    if (sectionDict == null) continue;
+
+                    Section section = new Section();
+
+                    // Parse section properties
+                    if (sectionDict.ContainsKey("lengthInSteps"))
+                        section.lengthInSteps = Convert.ToInt32(sectionDict["lengthInSteps"]);
+                    if (sectionDict.ContainsKey("bpm"))
+                        section.bpm = Convert.ToSingle(sectionDict["bpm"]);
+                    if (sectionDict.ContainsKey("changeBPM"))
+                        section.changeBPM = Convert.ToBoolean(sectionDict["changeBPM"]);
+                    if (sectionDict.ContainsKey("mustHitSection"))
+                        section.mustHitSection = Convert.ToBoolean(sectionDict["mustHitSection"]);
+                    if (sectionDict.ContainsKey("typeOfSection"))
+                        section.typeOfSection = Convert.ToInt32(sectionDict["typeOfSection"]);
+                    if (sectionDict.ContainsKey("altAnim"))
+                        section.altAnim = Convert.ToBoolean(sectionDict["altAnim"]);
+
+                    // Parse section notes (nested array)
+                    if (sectionDict.ContainsKey("sectionNotes"))
                     {
-                        var sectionDict = sectionObj as Dictionary<string, object>;
-                        if (sectionDict == null) continue;
-                        
-                        Section section = new Section();
-                        
-                        // Parse section properties
-                        if (sectionDict.ContainsKey("lengthInSteps"))
-                            section.lengthInSteps = Convert.ToInt32(sectionDict["lengthInSteps"]);
-                        if (sectionDict.ContainsKey("bpm"))
-                            section.bpm = Convert.ToSingle(sectionDict["bpm"]);
-                        if (sectionDict.ContainsKey("changeBPM"))
-                            section.changeBPM = Convert.ToBoolean(sectionDict["changeBPM"]);
-                        if (sectionDict.ContainsKey("mustHitSection"))
-                            section.mustHitSection = Convert.ToBoolean(sectionDict["mustHitSection"]);
-                        if (sectionDict.ContainsKey("typeOfSection"))
-                            section.typeOfSection = Convert.ToInt32(sectionDict["typeOfSection"]);
-                        if (sectionDict.ContainsKey("altAnim"))
-                            section.altAnim = Convert.ToBoolean(sectionDict["altAnim"]);
-                        
-                        // Parse section notes (nested array)
-                        if (sectionDict.ContainsKey("sectionNotes"))
+                        var sectionNotesList = sectionDict["sectionNotes"] as List<object>;
+                        if (sectionNotesList != null)
                         {
-                            var sectionNotesList = sectionDict["sectionNotes"] as List<object>;
-                            if (sectionNotesList != null)
+                            foreach (var noteObj in sectionNotesList)
                             {
-                                foreach (var noteObj in sectionNotesList)
+                                var noteList = noteObj as List<object>;
+                                if (noteList != null && noteList.Count >= 2)
                                 {
-                                    var noteList = noteObj as List<object>;
-                                    if (noteList != null && noteList.Count >= 2)
+                                    NoteArray noteArray = new NoteArray();
+                                    foreach (var value in noteList)
                                     {
-                                        NoteArray noteArray = new NoteArray();
-                                        foreach (var value in noteList)
-                                        {
-                                            noteArray.values.Add(Convert.ToSingle(value));
-                                        }
-                                        section.sectionNotes.Add(noteArray);
+                                        noteArray.values.Add(Convert.ToSingle(value));
                                     }
+                                    section.sectionNotes.Add(noteArray);
                                 }
                             }
                         }
-                        
-                        chartData.song.notes.Add(section);
                     }
+
+                    chartData.song.notes.Add(section);
                 }
             }
-            
+        }
+
         return chartData;
     }
-    
+
     /// <summary>
     /// Parse Version 2.0.0 chart format
     /// </summary>
     private ChartData ParseChartDataV2(Dictionary<string, object> rootDict)
     {
         ChartData chartData = new ChartData();
-        
+
         // Parse version
         chartData.version = rootDict.ContainsKey("version") ? rootDict["version"].ToString() : "2.0.0";
-        
+
         // Parse scrollSpeed
         if (rootDict.ContainsKey("scrollSpeed"))
         {
@@ -668,7 +668,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         {
             chartData.scrollSpeed = new ScrollSpeed { normal = 1f };
         }
-        
+
         // Parse notes
         chartData.notes = new NotesDifficulty();
         if (rootDict.ContainsKey("notes"))
@@ -696,13 +696,13 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                                     noteData.l = Convert.ToSingle(noteDict["l"]);
                                 if (noteDict.ContainsKey("p"))
                                     noteData.p = noteDict["p"] as List<object> ?? new List<object>();
-                                
+
                                 chartData.notes.easy.Add(noteData);
                             }
                         }
                     }
                 }
-                
+
                 // Parse normal difficulty
                 if (notesDict.ContainsKey("normal"))
                 {
@@ -723,7 +723,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                                     noteData.l = Convert.ToSingle(noteDict["l"]);
                                 if (noteDict.ContainsKey("p"))
                                     noteData.p = noteDict["p"] as List<object> ?? new List<object>();
-                                
+
                                 chartData.notes.normal.Add(noteData);
                             }
                         }
@@ -731,13 +731,13 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
                 }
             }
         }
-        
+
         // Parse generatedBy
         if (rootDict.ContainsKey("generatedBy"))
             chartData.generatedBy = rootDict["generatedBy"].ToString();
-        
+
         Debug.Log($"Loaded chart v{chartData.version}: {chartData.notes.easy.Count} easy notes, {chartData.notes.normal.Count} normal notes");
-        
+
         return chartData;
     }
 
@@ -760,20 +760,20 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         List<Note> allNotes = new();
 
         if (currentChart == null) return allNotes;
-        
+
         // Handle v2 format
         if (currentChart.notes != null)
         {
             // Use easy difficulty by default (can be made configurable)
             var noteDataList = currentChart.notes.easy.Count > 0 ? currentChart.notes.easy : currentChart.notes.normal;
-            
+
             foreach (var noteData in noteDataList)
             {
                 // Convert d (0-7) to noteData format
                 // d: 0-3 are player notes (Left, Down, Up, Right)
                 // d: 4-7 are opponent notes (Left, Down, Up, Right)
                 int convertedNoteData = noteData.d < 4 ? noteData.d : noteData.d; // Keep as-is since format matches
-                
+
                 allNotes.Add(new Note(noteData.t, convertedNoteData, noteData.l));
             }
         }
@@ -870,25 +870,29 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     {
         return _combo;
     }
-    
+
     public float GetCurrentHealth()
     {
         return _currentHealth;
     }
 
     #endregion
-    
+
     #region Health Management
-    
+
     public void OnPlayerNoteHit()
     {
         float healthGain = _healthPerPlayerNote * 5f;
         _currentHealth = Mathf.Clamp(_currentHealth + healthGain, 0f, 100f);
         UpdateHealthBar();
         CheckWinLoseCondition();
-        if (hitSound != null) hitSound.Play();
+        if (hitSound != null)
+        {
+            hitSound.Stop();
+            hitSound.Play();
+        }
     }
-    
+
     public void OnPlayerSustainHold(float holdDurationMs)
     {
         float healthGainPerMs = _healthPerPlayerNote / 100f; // Divide by 100ms as base
@@ -897,23 +901,27 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
         UpdateHealthBar();
         CheckWinLoseCondition();
     }
-    
+
     public void OnPlayerNoteMiss()
     {
         float healthLoss = _healthPerPlayerNote * 15f;
         _currentHealth = Mathf.Clamp(_currentHealth - healthLoss, 0f, 100f);
         UpdateHealthBar();
         CheckWinLoseCondition();
-        if (missSound != null) missSound.Play();
+        if (missSound != null)
+        {
+            missSound.Stop();
+            missSound.Play();
+        }
     }
-    
+
     private void UpdateHealthBar()
     {
         if (healthBarFill != null)
         {
             // Health bar: 0 = dead, 50 = center, 100 = winning
             healthBarFill.fillAmount = _currentHealth / 100f;
-            
+
             if (_currentHealth < 25f)
             {
                 healthBarFill.color = Color.red;
@@ -936,7 +944,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
             }
         }
     }
-    
+
     public void OnSongEnd()
     {
         if (_currentHealth > 25f)
@@ -956,6 +964,6 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
             OnBattleDefeat();
         }
     }
-    
+
     #endregion
 }

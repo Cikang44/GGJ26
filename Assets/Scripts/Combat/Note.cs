@@ -134,7 +134,6 @@ public class Note : MonoBehaviour
             else
             {
                 AutoHit(); // Enemy note auto-hits
-                RapManager.Instance.hitSound.Play();
             }
         }
     }
@@ -144,6 +143,9 @@ public class Note : MonoBehaviour
         if (_hasBeenHit || _hasMissed) return;
 
         _hasBeenHit = true;
+
+        RapManager.Instance.hitSound.Stop();
+        RapManager.Instance.hitSound.Play();
 
         // Visual feedback
         if (_targetReceptor != null)
