@@ -24,7 +24,6 @@ public class LaserEnemyBehaviour : MonoBehaviour
 
     private void ShootLaser()
     {
-        Debug.Log("Laser Enemy Shooting Laser");
-        GameObject laser = Instantiate(laserPrefab, transform.position, transform.localScale.x > 0 ? Quaternion.Euler(0, 0, 180) : Quaternion.identity);
+        Instantiate(laserPrefab, transform.position, transform.localScale.x > 0 ? Quaternion.Euler(0, 0, 180) : Quaternion.identity);
     }
 }
