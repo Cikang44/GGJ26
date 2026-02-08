@@ -11,6 +11,8 @@ public class Door : MonoBehaviour
     private Collider2D _playerCollider;
     private SpriteRenderer _trapdoorSpriteRenderer;
     private Animator _trapdoorAnimator;
+    public AudioSource openSound;
+    public AudioSource closeSound;
     void Start()
     {
         _interactable = GetComponent<Interactable>();
@@ -43,11 +45,10 @@ public class Door : MonoBehaviour
     {
         _trapdoorSpriteRenderer.enabled = true;
         _trapdoorAnimator.Play("Trapdoor_Open");
-        yield return new WaitForSeconds(0.2f);
-        _playerCollider.enabled = false;
-        yield return new WaitForSeconds(0.1f);
+        openSound.Play();
+        yield return new WaitForSeconds(0.4f);
         _player.SetActive(false);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         SceneTransitionManager.Instance.NextScene();
     }
 }

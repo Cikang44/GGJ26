@@ -6,6 +6,7 @@ public class LaserEnemyBehaviour : MonoBehaviour
     public float laserInterval = 1f;
     public float initialDelay = 1f / 6 * 5f;
     private float _laserTimer;
+    public AudioSource laserSound;
 
     private void Start()
     {
@@ -26,5 +27,6 @@ public class LaserEnemyBehaviour : MonoBehaviour
     {
         Debug.Log("Laser Enemy Shooting Laser");
         GameObject laser = Instantiate(laserPrefab, transform.position, transform.localScale.x > 0 ? Quaternion.Euler(0, 0, 180) : Quaternion.identity);
+        laserSound.Play();
     }
 }
