@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class PlayerBattery : MonoBehaviour
 {
     [Range(0, 100)] public float batteryPercentage = 100f;
-    [Min(0)] public float batteryLifetimeInSecond = 300f;
+    [Min(0)] public float batteryLifetimeInSecond = 180f;
     [Range(0, 100)] public float lowBatteryPercentage = 10f;
     public bool isDrainingBattery = true;
     private bool _isLowBattery = false;
