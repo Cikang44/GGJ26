@@ -42,10 +42,12 @@ public class Enemy : MonoBehaviour
     public bool IsInBattle => _isInBattle;
     public int damage = 1;
     public AudioSource dieSound;
+    private bool _hasStompableComponent = false;
 
     private void Start()
     {
         _healthBehaviour = GetComponent<HealthBehaviour>();
+        _hasStompableComponent = GetComponent<Stompable>() != null;
 
         // Subscribe to death event
         if (_healthBehaviour != null)
@@ -133,7 +135,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (_isInBattle || damage == 0) return;
+        if (_isInBattle || damage == 0 || _hasStompableComponent) return;
 
         if (collision.gameObject.CompareTag("Player"))
         {

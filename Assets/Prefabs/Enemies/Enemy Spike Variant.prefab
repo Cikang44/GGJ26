@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: a6984ff3aed35d0469a23e6c4fa7e633, type: 2}
+    - target: {fileID: 4243136894696435533, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4563252866026120741, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6164176643706772521, guid: 40d4fca0c179d489bbb4a4a732bcb279, type: 3}
     - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
       propertyPath: m_Name
       value: Enemy Spike Variant
@@ -59,6 +67,22 @@ PrefabInstance:
     - target: {fileID: 4792757218195160455, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804567235362227999, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.2377996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804567235362227999, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.2624999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389861571668936049, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.2377996
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389861571668936049, guid: 84f443e8bcbb54534b5b73c9c0614079, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.2624999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
