@@ -127,6 +127,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1935762748662276805, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935762748662276805, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935762748662276805, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1935762748662276805, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698840744714922134, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698840744714922134, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698840744714922134, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698840744714922134, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6003239130276344308, guid: 1ad8cc71d70f39049a8979dfef903847, type: 3}
       propertyPath: m_text
       value: '"I quit from being a playable character!"

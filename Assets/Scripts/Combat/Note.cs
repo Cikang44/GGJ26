@@ -11,15 +11,15 @@ public class Note : MonoBehaviour
     public RapManager.NoteDirection direction;
     public float sustainLength; // Hold duration in milliseconds
     public bool isPlayerNote;
-    
+
     [Header("References")]
     public Image noteImage;
     public GameObject sustainTail; // Visual for hold notes
-    
+
     [Header("Movement")]
     [Tooltip("Speed multiplier for note movement")]
     public float scrollSpeed = 1f;
-    
+
     private NoteReceptor _targetReceptor;
     private Vector3 _startPosition;
     private bool _hasBeenHit;
@@ -52,14 +52,14 @@ public class Note : MonoBehaviour
         this.sustainLength = noteData.sustainLength;
         this.isPlayerNote = noteData.IsPlayerNote();
         this.scrollSpeed = scrollSpeed;
-        
+
         _targetReceptor = receptor;
         _startPosition = startPos;
         _songStartTime = songStartTime;
         _travelTime = travelTime;
-        
+
         transform.position = startPos;
-        
+
         // Setup sustain tail if this is a hold note
         if (sustainTail != null)
         {
@@ -86,12 +86,12 @@ public class Note : MonoBehaviour
             {
                 float remainingDuration = sustainLength - holdDuration;
                 float _progress = Mathf.Clamp01(remainingDuration / sustainLength);
-                
+
                 // Scale tail height based on remaining duration
                 float currentHeight = _initialSustainTailHeight * _progress;
                 _sustainTailRect.sizeDelta = new Vector2(_sustainTailRect.sizeDelta.x, currentHeight);
             }
-            
+
             // Gradually give health while holding (for player notes)
             if (isPlayerNote && RapManager.Instance != null)
             {
@@ -111,19 +111,19 @@ public class Note : MonoBehaviour
                 return;
             }
         }
-        
+
         if (_hasBeenHit || _targetReceptor == null) return;
-        
+
         // Calculate position based on absolute song time
         float currentSongTime = (Time.time - _songStartTime) * 1000f; // Song time in milliseconds
         float timeUntilHit = hitTime - currentSongTime; // How much time until this note should be hit
         float progress = 1f - (timeUntilHit / _travelTime); // Progress from 0 to 1
-        
+
         // Clamp progress to prevent overshooting
         progress = Mathf.Clamp01(progress);
-        
+
         transform.position = Vector3.Lerp(_startPosition, _targetReceptor.GetPosition(), progress);
-        
+
         // Check if note has passed the receptor
         if (currentSongTime > hitTime + 200f && !_hasMissed) // 200ms grace period
         {
@@ -141,15 +141,18 @@ public class Note : MonoBehaviour
     public void Hit()
     {
         if (_hasBeenHit || _hasMissed) return;
-        
+
         _hasBeenHit = true;
-        
+
+        RapManager.Instance.hitSound.Stop();
+        RapManager.Instance.hitSound.Play();
+
         // Visual feedback
         if (_targetReceptor != null)
         {
             _targetReceptor.ShowHitFeedback();
         }
-        
+
         // If this is a sustain note, start holding instead of destroying
         if (sustainLength > 0)
         {
@@ -168,7 +171,7 @@ public class Note : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     /// <summary>
     /// Called when the player releases the note (for sustain notes)
     /// </summary>
@@ -184,15 +187,15 @@ public class Note : MonoBehaviour
     public void AutoHit()
     {
         if (_hasBeenHit || _hasMissed) return;
-        
+
         _hasBeenHit = true;
-        
+
         // Visual feedback for opponent
         if (_targetReceptor != null)
         {
             _targetReceptor.ShowHitFeedback();
         }
-        
+
         // Enemy notes with sustain should also hold and show visual decrease
         if (sustainLength > 0)
         {
@@ -209,19 +212,19 @@ public class Note : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
+
     public void Miss()
     {
         if (_hasBeenHit || _hasMissed) return;
-        
+
         _hasMissed = true;
-        
+
         // Notify RapManager that player missed
         if (RapManager.Instance != null)
         {
             RapManager.Instance.OnPlayerNoteMiss();
         }
-        
+
         // Fade out and destroy
         if (noteImage != null)
         {
@@ -229,7 +232,7 @@ public class Note : MonoBehaviour
             c.a = 0.3f;
             noteImage.color = c;
         }
-        
+
         Destroy(gameObject);
     }
 

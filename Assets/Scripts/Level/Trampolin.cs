@@ -3,6 +3,7 @@ using UnityEngine;
 public class Trampolin : MonoBehaviour
 {
     public bool canBeThrowed = true;
+    public AudioSource failSound;
 
     private Rigidbody2D _rigidbody;
     private Collider2D[] _colliders;
@@ -24,6 +25,8 @@ public class Trampolin : MonoBehaviour
             float angle = Random.Range(60, 120) * Mathf.Deg2Rad;
             _rigidbody.AddForce(new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * 500);
             _rigidbody.AddTorque(Random.Range(-720, 720) * Mathf.Deg2Rad);
+
+            if (failSound != null) failSound.Play();
         }
     }
 
