@@ -5,7 +5,7 @@ public class ArachnoBehaviour : MonoBehaviour
     static bool _isArachnophobiaModeEnabled = false;
 
     public Animator animator;
-    private Enemy enemy;
+    public Enemy enemy;
     public EnemySimpleMovement enemySimpleMovement;
 
     private void Start()
