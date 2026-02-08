@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
@@ -8,6 +9,8 @@ public class PauseMenu : MonoBehaviour
     private PlayerMovement _playerMovement;
     private PlayerBattery _playerBattery;
     private PlayerQuit _playerQuit;
+    private Collider2D _playerCollider;
+    private CameraMovement _cameraMovement;
 
     public CanvasGroup pauseMenu;
     public Button pauseButton;
@@ -25,7 +28,9 @@ public class PauseMenu : MonoBehaviour
             _playerMovement = player.GetComponent<PlayerMovement>();
             _playerBattery = player.GetComponent<PlayerBattery>();
             _playerQuit = player.GetComponent<PlayerQuit>();
+            _playerCollider = player.GetComponent<Collider2D>();
         }
+        _cameraMovement = Camera.main.GetComponent<CameraMovement>();
     }
 
     public void Pause()
@@ -74,10 +79,12 @@ public class PauseMenu : MonoBehaviour
         yield return new WaitForSeconds(quitDelay);
         _playerMovement.boostHeight = 100;
         _playerMovement.Boost(_playerMovement.transform.position);
+        _playerCollider.enabled = false;
+        if (_cameraMovement != null) _cameraMovement.enabled = false;
 
         yield return new WaitForSeconds(quitDelay);
 
-        SceneTransitionManager.Instance.GoToScene("Game Over By Quitting");
+        SceneManager.LoadScene("Game Over By Quitting");
     }
 
     public void ConfigureArachnophobiaMode(bool isEnabled)
