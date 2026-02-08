@@ -11,74 +11,80 @@ public class Enemy : MonoBehaviour
     [Header("Enemy Stats")]
     [Tooltip("Enemy name displayed in battle")]
     public string enemyName = "Enemy";
-    
+
     [Tooltip("Difficulty level affects note patterns")]
     [Range(1, 5)] public int difficultyLevel = 1;
-    
+
     [Header("Battle Settings")]
     [Tooltip("Chart JSON file for this enemy")]
     public TextAsset[] battleChartAsset;
     [Tooltip("Audio clip for the battle music")]
     public AudioClip[] battleMusicClip;
-    
+
     [Tooltip("Character sprite for battle UI")]
     public Sprite enemyBattleSprite;
-    
+
     [Tooltip("Detection radius for visual indicator")]
     [Min(0f)] public float detectionRadius = 5f;
-    
+
     [Header("Visual Feedback")]
     [Tooltip("Visual indicator when player is nearby (optional)")]
     public GameObject detectionIndicator;
-    
+
     [Header("Events")]
     public UnityEvent OnBattleStart;
     public UnityEvent OnBattleEnd;
     public UnityEvent OnDefeat;
-    
+
     private HealthBehaviour _healthBehaviour;
     private Transform _playerTransform;
     private bool _isInBattle = false;
     public bool IsInBattle => _isInBattle;
     public int damage = 1;
+    public AudioSource dieSound;
 
     private void Start()
     {
         _healthBehaviour = GetComponent<HealthBehaviour>();
-        
+
         // Subscribe to death event
         if (_healthBehaviour != null)
         {
             _healthBehaviour.OnDeath.AddListener(HandleDefeat);
         }
-        
+
         // Find player
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
             _playerTransform = player.transform;
         }
-        
+
         if (detectionIndicator != null)
         {
             detectionIndicator.SetActive(false);
         }
+
+        OnDefeat.AddListener(() =>
+        {
+            if (dieSound != null) dieSound.Play();
+        });
     }
 
     private void Update()
     {
         if (_isInBattle) return;
-        
+
         CheckPlayerProximity();
     }
 
     private void CheckPlayerProximity()
     {
         if (_playerTransform == null) return;
-        
+
         float distanceToPlayer = Vector2.Distance(transform.position, _playerTransform.position);
         bool playerIsNearby = distanceToPlayer <= detectionRadius;
-        
+
         if (detectionIndicator != null)
         {
             detectionIndicator.SetActive(playerIsNearby);
@@ -89,7 +95,7 @@ public class Enemy : MonoBehaviour
     {
         _isInBattle = true;
         OnBattleStart?.Invoke();
-        
+
         if (detectionIndicator != null)
         {
             detectionIndicator.SetActive(false);
@@ -100,7 +106,7 @@ public class Enemy : MonoBehaviour
     {
         _isInBattle = false;
         OnBattleEnd?.Invoke();
-        
+
         if (wasDefeated)
         {
             HandleDefeat();
@@ -110,7 +116,7 @@ public class Enemy : MonoBehaviour
     private void HandleDefeat()
     {
         OnDefeat?.Invoke();
-        
+
         // Optional: disable collider or hide enemy
         if (GetComponent<Collider2D>() != null)
         {
@@ -128,7 +134,7 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (_isInBattle || damage == 0) return;
-        
+
         if (collision.gameObject.CompareTag("Player"))
         {
             var health = collision.gameObject.GetComponent<HealthBehaviour>();
