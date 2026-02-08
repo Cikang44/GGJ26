@@ -224,6 +224,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
     [Header("Audios")]
     public AudioSource hitSound;
     public AudioSource missSound;
+    public AudioSource startBattleSound;
 
     public override void Awake()
     {
@@ -364,6 +365,7 @@ public class RapManager : MonoBehaviourSingletonPersistent<RapManager>
             Debug.Log($"Playing battle music: {instrumentalSource.clip.name}");
             instrumentalSource.Play();
         }
+        if (startBattleSound != null) startBattleSound.Play();
 
         // Invoke event
         OnBattleStart?.Invoke(enemy);
